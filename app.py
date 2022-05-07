@@ -143,7 +143,8 @@ def png_export():
                 color: white;
                 }}
         </style> """
-
+    
+    st.markdown("#### Clique:")
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
