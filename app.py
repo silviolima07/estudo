@@ -24,7 +24,7 @@ def main():
     PAGES = {
         "Draw numbers from 0 to 9": png_export,
     }
-    page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
+    page = st.sidebar.selectbox("Opções: ", options=list(PAGES.keys()))
     PAGES[page]()
 
 
@@ -92,7 +92,7 @@ def png_export():
     )
     st.markdown(
         """
-    ##### Clique em Send to Streamlit e depois Export PNG.
+    ##### - clique em Send to Streamlit e depois Export PNG.
     """
     )
     try:
