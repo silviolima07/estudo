@@ -86,7 +86,7 @@ def draw_app():
             st.dataframe(objects)
 
 
-        st.json(st.session_state["color_to_label"])
+
 
 
 def png_export():
