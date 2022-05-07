@@ -24,8 +24,8 @@ def main():
     PAGES = {
         "Draw numbers from 0 to 9": png_export,
     }
-    page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
-    PAGES[page]()
+    #page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
+    #PAGES[page]()
 
 
 
@@ -101,7 +101,7 @@ def png_export():
     now = time.time()
     N_HOURS_BEFORE_DELETION = 1
     for f in Path("tmp/").glob("*.png"):
-        st.write(f, os.stat(f).st_mtime, now)
+        #st.write(f, os.stat(f).st_mtime, now)
         if os.stat(f).st_mtime < now - N_HOURS_BEFORE_DELETION * 3600:
             Path.unlink(f)
 
