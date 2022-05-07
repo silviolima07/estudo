@@ -24,8 +24,8 @@ def main():
     PAGES = {
         "Draw numbers from 0 to 9": png_export,
     }
-    #page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
-    #PAGES[page]()
+    page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
+    PAGES[page]()
 
 
 
