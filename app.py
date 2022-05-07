@@ -87,7 +87,7 @@ def draw_app():
 def png_export():
     st.markdown(
         """
-    ### Desenho um número de 0 a 9. 
+    ### Desenhe um número de 0 a 9. 
     """
     )
     #st.markdown(
