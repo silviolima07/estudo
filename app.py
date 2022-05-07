@@ -54,7 +54,7 @@ def about():
     :pencil: [Demo source code](https://github.com/andfanilo/streamlit-drawable-canvas-demo/)    
     """
     )
-    st.image("img/demo.gif")
+    #st.image("img/demo.gif")
     st.markdown(
         """
     What you can do with Drawable Canvas:
