@@ -166,7 +166,7 @@ def png_export():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="Streamlit Drawable Canvas Demo", page_icon="'💡'"
+        page_title="Streamlit app", page_icon=":pencil2:"
     )
     st.title("Transfer Learning")
     st.sidebar.subheader("Menu")
