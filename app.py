@@ -92,7 +92,7 @@ def png_export():
     """
     )
     try:
-        Path("tmp/").mkdir()
+        Path("tmp/").mkdir('teste')
     except FileExistsError:
         pass
 
