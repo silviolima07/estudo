@@ -87,14 +87,14 @@ def draw_app():
 def png_export():
     st.markdown(
         """
-    ### Desenho um número de 0 a 9. 
+    ## Desenho um número de 0 a 9. 
     """
     )
-    st.markdown(
-        """
+    #st.markdown(
+    #    """
     ##### - clique em Send to Streamlit e depois Export PNG.
-    """
-    )
+    #"""
+    #)
     try:
         Path("tmp/").mkdir()
     except FileExistsError:
@@ -164,6 +164,7 @@ def png_export():
             custom_css
             + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
         )
+        st.markdown("## Clique:")
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
 
