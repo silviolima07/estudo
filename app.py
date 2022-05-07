@@ -159,10 +159,12 @@ def png_export():
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
 
+        st.markdown("Clique para enviar o desenho para o Streamlit e depois no botão Export PNG")
         dl_link = (
             custom_css
             + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
         )
+        st.markdown("Clique para enviar o desenho para o Streamlit e depois no botão Export PNG")
         st.markdown(dl_link, unsafe_allow_html=True)
 
 
