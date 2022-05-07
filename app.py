@@ -87,12 +87,12 @@ def draw_app():
 def png_export():
     st.markdown(
         """
-    Previsão de número desenhado. 
+    ## Desenho um número de 0 a 9. 
     """
     )
     st.markdown(
         """
-    Press the 'Download' button at the bottom of canvas to update exported image.
+    ## Clique em Send to Streamlit e depois Export PNG.
     """
     )
     try:
@@ -159,12 +159,12 @@ def png_export():
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
 
-        st.markdown("Clique para enviar o desenho para o Streamlit e depois no botão Export PNG")
+        
         dl_link = (
             custom_css
             + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
         )
-        st.markdown("Clique para enviar o desenho para o Streamlit e depois no botão Export PNG")
+        st.markdown("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
 
 
