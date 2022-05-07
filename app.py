@@ -87,7 +87,11 @@ def draw_app():
 def png_export():
     st.markdown(
         """
-    Realtime update is disabled for this demo. 
+    Previsão de número desenhado. 
+    """
+    )
+    st.markdown(
+        """
     Press the 'Download' button at the bottom of canvas to update exported image.
     """
     )
