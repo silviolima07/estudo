@@ -113,6 +113,8 @@ def png_export():
         st.session_state["button_id"] = re.sub(
             "\d+", "", str(uuid.uuid4()).replace("-", "")
         )
+    teste = os.rename(st.session_state["button_id"], 'numero_desenhado')
+    st.write(teste)
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
 
@@ -144,7 +146,6 @@ def png_export():
                 }}
         </style> """
     
-    st.markdown("#### Clique:")
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
