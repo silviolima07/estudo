@@ -22,12 +22,7 @@ def main():
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
     PAGES = {
-       # "About": about,
-       # "Basic example": full_app,
-       # "Get center coords of circles": center_circle_app,
-       # "Color-based image annotation": color_annotation_app,
-        "Download Base64 encoded PNG": png_export,
-       # "Compute the length of drawn arcs": compute_arc_length,
+        "Draw numbers from 0 to 9": png_export,
     }
     page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
     PAGES[page]()
@@ -46,7 +41,7 @@ def draw_app():
     * In polygon mode, left-click to add a point, right-click to close the polygon, double-click to remove the latest point
     """
     )
-
+    """
     with st.echo("below"):
         # Specify canvas parameters in application
         drawing_mode = st.sidebar.selectbox(
@@ -85,7 +80,7 @@ def draw_app():
         #        objects[col] = objects[col].astype("str")
         #    st.dataframe(objects)
 
-
+        """
 
 
 
