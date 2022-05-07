@@ -164,7 +164,7 @@ def png_export():
             custom_css
             + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
         )
-        st.markdown("## Clique:")
+        st.markdown("#### Clique:")
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
 
