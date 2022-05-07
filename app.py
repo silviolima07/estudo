@@ -4,7 +4,6 @@ from bokeh.models import FreehandDrawTool
 import streamlit as st
 
 
-
 def main():
 
 
