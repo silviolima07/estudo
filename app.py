@@ -110,13 +110,11 @@ def png_export():
             Path.unlink(f)
 
     if st.session_state["button_id"] == "":
-        st.subheader(st.session_state["button_id"])
         st.session_state["button_id"] = re.sub(
             "\d+", "", str(uuid.uuid4()).replace("-", "")
         )
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-    st.title(file_path)
 
     custom_css = f""" 
         <style>
