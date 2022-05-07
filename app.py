@@ -27,11 +27,11 @@ def main():
 
     renderer = p.multi_line([[1, 1]], [[1, 1]], line_width=1, alpha=0.4, color='red')
 
-    #draw_tool = FreehandDrawTool(renderers=[renderer], num_objects=99999)
-    #p.add_tools(draw_tool)
-    #p.toolbar.active_drag = draw_tool
+    draw_tool = FreehandDrawTool(renderers=[renderer], num_objects=99999)
+    p.add_tools(draw_tool)
+    p.toolbar.active_drag = draw_tool
 
-    #st.bokeh_chart(p)  
+    st.bokeh_chart(p)  
     
     
     
