@@ -23,7 +23,7 @@ def main():
               """
     st.markdown(html_page, unsafe_allow_html=True)
     
-    p = figure(x_range=(0, 10), y_range=(0, 10), width=400, height=400)
+    p = figure(x_range=(0, 10), y_range=(0, 10), width=400, height=400,xgrid = FALSE, ygrid = FALSE, xaxes = FALSE, yaxes = FALSE)
 
     renderer = p.multi_line([[1, 1]], [[1, 1]], line_width=30, alpha=0.4, color='red')
 
