@@ -167,6 +167,8 @@ def png_export():
             b64 = base64.b64encode(img_data.encode()).decode()
             #
             json.dump({'image':b64}, open('tmp/image.json', 'w'))
+            image_json = json.load('tmp/image.json')
+            st.write(image_json)
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
 
