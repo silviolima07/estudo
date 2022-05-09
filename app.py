@@ -131,14 +131,6 @@ def png_export():
     #file_path = teste
     
     
-    convert_tensor = transforms.ToTensor()
-    
-    img = Image.open(file_path)
-    file_tensor = convert_tensor(img)
-    st.write("Imagem na forma de tensor")
-    st.write(file_tensor)
-  
-    
     custom_css = f""" 
         <style>
             #{button_id} {{
@@ -191,6 +183,13 @@ def png_export():
         st.markdown("#### Clique:")
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
+        
+        convert_tensor = transforms.ToTensor()
+        file = "{file_path}"
+        img = Image.open(file)
+        file_tensor = convert_tensor(img)
+        st.write("Imagem na forma de tensor")
+        st.write(file_tensor)
     
         
 
