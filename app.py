@@ -124,9 +124,9 @@ def png_export():
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
     
-    imagem = {file_path}
-    st.subheader(imagem)
-    st.subheader(imagem.replace('/','_'))
+    
+    st.subheader(file_path)
+    st.subheader(file_path.replace('/','_'))
     
     
     custom_css = f""" 
