@@ -123,7 +123,8 @@ def png_export():
     #st.write(teste)
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-       
+    teste = file_path.replace('/','_')
+    st.write(teste)   
     
     custom_css = f""" 
         <style>
