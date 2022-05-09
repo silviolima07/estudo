@@ -165,27 +165,19 @@ def png_export():
         try:
             # some strings <-> bytes conversions necessary here
             b64 = base64.b64encode(img_data.encode()).decode()
-            #
+            
+            data = {}
+            data['img'] = base64.encodebytes(img_data).decode('utf-8')
+            print(json.dumps(data))
+            st.json(data['img'])
+        
             #json.dump({'image':b64}, open('tmp/image.json', 'w'))
             #image_json = json.load('tmp/image.json')
             #print(image_json)
             #st.write("Json")
             #st.json(image_json)
         except AttributeError:
-            b64 = base64.b64encode(img_data).decode()
-        
-        json.dump({'image':img_data}, open('tmp/image.json', 'w'))
-        image_json = json.load('tmp/image.json')
-        print(image_json)
-        st.write("Json")
-        
-        import json
-        import base64
-
-        data = {}
-        data['img'] = base64.encodebytes(img).decode('utf-8')
-        print(json.dumps(data))
-        st.json(data['img'])
+            b64 = base64.b64encode(img_data).decode()       
         
         dl_link = (
             custom_css
