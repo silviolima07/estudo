@@ -121,10 +121,13 @@ def png_export():
         )
     
     button_id = st.session_state["button_id"]
-    temp = f"tmp/{button_id}.png"
+    file_path = f"tmp/{button_id}.png"
+    st.subheader(file_path)
+    temp = file_path
     temp = temp.replace('/','_')
+    st.subheader(temp)
     teste = os.rename(temp, 'image_number.png')
-    #file_path = f"tmp/{button_id}.png"
+    
     file_path = teste
     
     
