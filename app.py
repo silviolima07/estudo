@@ -189,8 +189,8 @@ def png_export():
         img = Image.open(file)
         st.image(img)
         file_tensor = convert_tensor(img)
-        st.write("Imagem na forma de tensor")
-        st.table(file_tensor)
+        #st.write("Imagem na forma de tensor")
+        #st.write(file_tensor)
     
         
 
@@ -201,4 +201,9 @@ if __name__ == "__main__":
     )
     st.title("Transfer Learning")
     st.sidebar.subheader("Menu")
+    
+    # Load model
+    PATH= './model.pth'
+    modelo = torch.load(PATH)
+    st.write(modelo.eval())
     main()
