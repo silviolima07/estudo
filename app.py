@@ -17,6 +17,10 @@ from svgpathtools import parse_path
 
 import json
 
+import torch
+
+from torchvision import transforms
+
 
 def main():
     if "button_id" not in st.session_state:
