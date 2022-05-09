@@ -126,9 +126,9 @@ def png_export():
     #teste = file_path.replace('/','_')
     
     convert_tensor = transforms.ToTensor()
-    #teste = file_path.replace('/','_')
-    #st.title(teste)
-    img = Image.open(file_path)
+    teste = file_path.replace('/','_')
+    st.title(teste)
+    img = Image.open(teste)
     file_tensor = convert_tensor('tmp_image_number.png')
     st.write("Imagem na forma de tensor")
     st.write(file_tensor)
