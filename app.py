@@ -181,6 +181,9 @@ def png_export():
         st.markdown("#### Clique:")
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
+        print(image_json)
+        st.write("Json")
+        st.json(image_json)
 
 
 
