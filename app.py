@@ -185,7 +185,7 @@ def png_export():
         st.markdown(dl_link, unsafe_allow_html=True)
         
         convert_tensor = transforms.ToTensor()
-        file = "{file_path}"
+        file = file_path
         img = Image.open(file)
         file_tensor = convert_tensor(img)
         st.write("Imagem na forma de tensor")
