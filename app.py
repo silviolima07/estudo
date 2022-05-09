@@ -126,7 +126,7 @@ def png_export():
     temp = file_path
     temp = temp.replace('/','_')
     st.subheader(temp)
-    teste = os.rename(temp, 'image_number.png')
+    teste = os.rename(file_path, 'image_number.png')
     
     file_path = teste
     
