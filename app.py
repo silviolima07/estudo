@@ -123,8 +123,16 @@ def png_export():
     #st.write(teste)
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-    teste = file_path.replace('/','_')
-    st.write(teste)   
+    #teste = file_path.replace('/','_')
+    
+    convert_tensor = transforms.ToTensor()
+    #teste = file_path.replace('/','_')
+    #st.title(teste)
+    img = Image.open(file_path)
+    file_tensor = convert_tensor(img)
+    st.write("Imagem na forma de tensor")
+    st.write(file_tensor)
+  
     
     custom_css = f""" 
         <style>
@@ -179,14 +187,7 @@ def png_export():
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
     
-        convert_tensor = transforms.ToTensor()
-        teste = file_path.replace('/','_')
-        st.title(teste)
-        img = Image.open(file_path)
-        file_tensor = convert_tensor(img)
-        print("Imagem na forma de tensor")
-        st.write(file_tensor)
-
+        
 
 
 if __name__ == "__main__":
