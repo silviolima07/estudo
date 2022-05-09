@@ -121,15 +121,15 @@ def png_export():
         )
     
     button_id = st.session_state["button_id"]
-    button_id = "image_number"
-    file_path = f"tmp/{button_id}.png"
-    #teste = file_path.replace('/','_')
+    teste = os.rename(f"tmp/{button_id}.png", 'image_number.png')'
+    #file_path = f"tmp/{button_id}.png"
+    file_path = teste
+    
     
     convert_tensor = transforms.ToTensor()
-    teste = file_path.replace('/','_')
-    st.title(teste)
-    img = Image.open(teste)
-    file_tensor = convert_tensor('tmp_image_number.png')
+    
+    img = Image.open(file_path)
+    file_tensor = convert_tensor(img)
     st.write("Imagem na forma de tensor")
     st.write(file_tensor)
   
