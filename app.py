@@ -15,6 +15,8 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
+import json
+
 
 def main():
     if "button_id" not in st.session_state:
@@ -159,6 +161,8 @@ def png_export():
         try:
             # some strings <-> bytes conversions necessary here
             b64 = base64.b64encode(img_data.encode()).decode()
+            #
+            json.dump({'image':b64}, open('tmp/image.json', 'w'))
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
 
