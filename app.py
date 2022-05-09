@@ -178,7 +178,14 @@ def png_export():
         image_json = json.load('tmp/image.json')
         print(image_json)
         st.write("Json")
-        st.json(image_json)
+        
+        import json
+        import base64
+
+        data = {}
+        data['img'] = base64.encodebytes(img).decode('utf-8')
+        print(json.dumps(data))
+        st.json(data['img'])
         
         dl_link = (
             custom_css
