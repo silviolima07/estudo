@@ -126,7 +126,7 @@ def png_export():
     
     imagem = {file_path}
     st.subheader(imagem)
-    st.subheader(imagem.replace('/','_')
+    st.subheader(imagem.replace('/','_'))
     
     
     custom_css = f""" 
