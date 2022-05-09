@@ -170,9 +170,10 @@ def png_export():
             data = {}
             with open(file_path, mode='rb') as file:
                 img = file.read()
+                print(img)
             data['img'] = b64
             print(json.dumps(data))
-            st.json(data['img'])
+            #st.json(data['img'])
         
             #json.dump({'image':b64}, open('tmp/image.json', 'w'))
             #image_json = json.load('tmp/image.json')
