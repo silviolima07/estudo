@@ -169,7 +169,8 @@ def png_export():
             json.dump({'image':b64}, open('tmp/image.json', 'w'))
             image_json = json.load('tmp/image.json')
             print(image_json)
-            st.write(image_json)
+            st.write("Json")
+            st.json(image_json)
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
 
@@ -181,9 +182,8 @@ def png_export():
         st.markdown("#### Clique:")
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
-        print(image_json)
-        st.write("Json")
-        st.json(image_json)
+    
+        
 
 
 
