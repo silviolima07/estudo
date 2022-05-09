@@ -179,7 +179,9 @@ def png_export():
         st.markdown(dl_link, unsafe_allow_html=True)
     
         convert_tensor = transforms.ToTensor()
-        img = Image.open(file_path.replace('/','_'))
+        teste = file_path.replace('/','_')
+        st.write(teste)
+        img = Image.open(teste)
         file_tensor = convert_tensor(img)
         st.write(file_tensor)
 
