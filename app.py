@@ -178,7 +178,9 @@ def png_export():
         st.success("Send to Streamlit ---> Export PNG.")
         st.markdown(dl_link, unsafe_allow_html=True)
     
-        
+    convert_tensor = transforms.ToTensor()
+    file_tensor = convert_tensor({file_path})
+    st.write(file_tensor)
 
 
 
