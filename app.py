@@ -163,6 +163,7 @@ def png_export():
         im.save(buffered, format="PNG")
         img_data = buffered.getvalue()
         try:
+            st.subheader('b64')
             # some strings <-> bytes conversions necessary here
             b64 = base64.b64encode(img_data.encode()).decode()
             
@@ -179,7 +180,13 @@ def png_export():
             #st.write("Json")
             #st.json(image_json)
         except AttributeError:
-            b64 = base64.b64encode(img_data).decode()       
+            b64 = base64.b64encode(img_data).decode()
+            data = {}
+            with open(file_path, mode='rb') as file:
+                img = file.read()
+            data['img'] = base64.encodebytes(img).decode('utf-8')
+            print(json.dumps(data))
+            st.json(data['img'])            
         
         dl_link = (
             custom_css
