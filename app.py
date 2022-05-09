@@ -190,7 +190,7 @@ def png_export():
         st.image(img)
         file_tensor = convert_tensor(img)
         st.write("Imagem na forma de tensor")
-        st.write(file_tensor)
+        st.table(file_tensor)
     
         
 
