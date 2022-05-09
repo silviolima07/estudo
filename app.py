@@ -119,10 +119,9 @@ def png_export():
         st.session_state["button_id"] = re.sub(
             "\d+", "", str(uuid.uuid4()).replace("-", "")
         )
-    teste = os.rename('tmp/'+st.session_state["button_id"], 'numero_desenhado')
-    st.write(teste)
     
     button_id = st.session_state["button_id"]
+    button_id = "image_number"
     file_path = f"tmp/{button_id}.png"
     #teste = file_path.replace('/','_')
     
@@ -130,7 +129,7 @@ def png_export():
     #teste = file_path.replace('/','_')
     #st.title(teste)
     img = Image.open(file_path)
-    file_tensor = convert_tensor(img)
+    file_tensor = convert_tensor('tmp_image_number.png')
     st.write("Imagem na forma de tensor")
     st.write(file_tensor)
   
