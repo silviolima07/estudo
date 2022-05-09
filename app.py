@@ -121,7 +121,7 @@ def png_export():
         )
     
     button_id = st.session_state["button_id"]
-    teste = os.rename(f"tmp/{button_id}.png", 'image_number.png')'
+    teste = os.rename(f"tmp/{button_id}.png", 'image_number.png')
     #file_path = f"tmp/{button_id}.png"
     file_path = teste
     
