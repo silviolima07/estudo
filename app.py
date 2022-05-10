@@ -193,7 +193,12 @@ def png_export():
         file_tensor = convert_tensor(img)
         #st.write("Imagem na forma de tensor")
         #st.write(file_tensor)
-        st.write(modelo.predict(file_tensor))
+        #st.write(modelo.predict(file_tensor))
+        img_28_28 = img.resize(28,28)
+        st.image(img_28_28)
+        img_prep = img_28_28.astype('float32')
+        img_prep = img_28_28/255
+        st;write(img_prep)
     
         
 
