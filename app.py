@@ -192,7 +192,7 @@ def png_export():
             st.write(img_normalizado.reshape(1,28,28,1))
             
             pred = mnist_keras.predict(img_normalizado.reshape(1,28,28,1))
-            st.write(pred)
+            
             st.title(pred.argmax())
     
         
