@@ -205,7 +205,7 @@ if __name__ == "__main__":
     st.sidebar.subheader("Menu")
     
     # Load model
-    PATH= './model.pth'
+    PATH= './modelo.pth'
     modelo = torch.load(PATH)
     st.write(modelo.eval())
     main()
