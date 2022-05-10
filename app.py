@@ -181,7 +181,7 @@ def png_export():
  
             img_784 = img_array.reshape(-1,28*28)
             img_784 = img_784.astype('float32')
-            img_normalizado = img_784/255
+            img_normalizado = img_784/255.0
             
         
             st.title("Previsão")
