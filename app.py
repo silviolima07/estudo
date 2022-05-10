@@ -178,15 +178,17 @@ def png_export():
             
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
+            
+        st.success("Send to Streamlit ---> Prever")    
                       
-        if st.button("Teste"):
-            dl_link = (
-                custom_css
-                + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
-            )
+        if st.button("Prever"):
+            #dl_link = (
+            #    custom_css
+            #    + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
+            #)
             st.markdown("#### Clique:")
-            st.success("Send to Streamlit ---> Export PNG.")
-            st.markdown(dl_link, unsafe_allow_html=True)
+            #st.success("Send to Streamlit ---> Export PNG.")
+            #st.markdown(dl_link, unsafe_allow_html=True)
         
             convert_tensor = transforms.ToTensor()
             file = file_path
@@ -208,18 +210,18 @@ def png_export():
             #st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
             st.title("Previsões")
-            st.subheader("valores:")
+            #st.subheader("valores:")
             predict_x=modelo_keras.predict(img_normalizado) 
-            st.write(predict_x)
+            #st.write(predict_x)
             
             classes_x=np.argmax(predict_x,axis=1)
-            st.subheader("classes:")
+            #st.subheader("classes:")
             st.write(classes_x)
             pred = modelo_keras.predict(img_normalizado)
-            st.subheader(pred.argmax())
+            st.title(pred.argmax())
             
-            pred2 = mnist_keras.predict(img_normalizado.reshape(1, 28, 28, 1))
-            st.subheader(pred2.argmax())
+            #pred2 = mnist_keras.predict(img_normalizado.reshape(1, 28, 28, 1))
+            #st.subheader(pred2.argmax())
             
             
     
