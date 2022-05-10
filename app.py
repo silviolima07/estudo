@@ -189,10 +189,11 @@ def png_export():
         convert_tensor = transforms.ToTensor()
         file = file_path
         img = Image.open(file)
-        st.image(img)
+        #st.image(img)
         file_tensor = convert_tensor(img)
         #st.write("Imagem na forma de tensor")
         #st.write(file_tensor)
+        st.write(modelo.predict(file_tensor))
     
         
 
@@ -205,6 +206,6 @@ if __name__ == "__main__":
     st.sidebar.subheader("Menu")
     
     # Load model
-    PATH= './modelo.pth'
+    PATH= './modelo_normal.pth'
     modelo = torch.load(PATH)
     main()
