@@ -214,6 +214,8 @@ def png_export():
             classes_x=np.argmax(predict_x,axis=1)
             st.subheader("classes:")
             st.write(classes_x)
+            pred = modelo_keras.predict(x_test[img_normalizado)
+            print(pred.argmax())
             
     
         
