@@ -210,6 +210,7 @@ def png_export():
             classes_x=np.argmax(predict_x,axis=1)
             st.title("Previsão:")
             st.subheader(classes_x)
+            st.subheader(modelo_keras.predict_proba(img_normalizado)
     
         
 
@@ -222,8 +223,8 @@ if __name__ == "__main__":
     st.sidebar.subheader("Menu")
     
     # Load model
-    PATH= './modelo_normal.pth'
-    modelo = torch.load(PATH)
+    #PATH= './modelo_normal.pth'
+    #modelo = torch.load(PATH)
     
     modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
