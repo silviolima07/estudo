@@ -224,7 +224,7 @@ def png_export():
             pred = modelo_keras.predict(img_784)
             st.title(pred.argmax())
             
-            pred2 = mnist_keras.predict(img_normalizado.reshape(1, 28, 28, 1))
+            pred2 = mnist_keras.predict(img_normalizado.reshape(-1, 28*28))
             st.subheader(pred2.argmax())
             
             
