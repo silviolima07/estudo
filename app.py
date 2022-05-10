@@ -126,7 +126,8 @@ def png_export():
     
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-    #st.subheader(file_path)
+    st.write("file_path da imagem png")
+    st.subheader(file_path)
     #temp = file_path
     #temp = temp.replace('/','_')
     #st.subheader(temp)
@@ -193,13 +194,13 @@ def png_export():
             convert_tensor = transforms.ToTensor()
             file = file_path
             img = Image.open(file).convert('L')
-            #st.image(img)
+            st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
             #st.write(file_tensor)
             #st.write(modelo.predict(file_tensor))
             img_28_28 = img.resize([28,28], Image.NEAREST)
-            #st.image(img_28_28)
+            st.image(img_28_28)
             img_array = np.array(img_28_28)
             #img_array = img_array[:,:,0]
             img_784 = img_array.reshape(-1,28*28)
