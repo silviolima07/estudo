@@ -171,8 +171,8 @@ def png_export():
             file = file_path
             img = Image.open(file)
             st.image(img)
-            img = img.convert('LA')
-            st.image(img)
+            #img = img.convert('LA')
+            #st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
             #st.write(file_tensor)
@@ -192,12 +192,7 @@ def png_export():
             st.write(pred)
             st.title(pred.argmax())
             
-            
            
-            
-            pred = mnist_keras.predict(img_normalizado)
-            
-            st.title(pred.argmax())
     
         
 
