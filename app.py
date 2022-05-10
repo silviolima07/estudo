@@ -23,6 +23,8 @@ from torchvision import transforms
 
 from tensorflow import keras
 
+tensorflow.compat.v1.disable_eager_execution()
+
 
 
 
