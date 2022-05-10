@@ -21,6 +21,8 @@ import torch
 
 from torchvision import transforms
 
+from tensorflow import keras
+
 
 
 
@@ -196,9 +198,9 @@ def png_export():
         #st.write(modelo.predict(file_tensor))
         img_28_28 = img.resize([28,28], Image.NEAREST)
         st.image(img_28_28)
-        img_prep = img_28_28.astype('float32')
         img_prep = img_28_28/255
-        st;write(img_prep)
+        st.write(img_prep)
+        st.subheader(modelo_keras.predict_classes(img_prep,1,verbose=0)[0])
     
         
 
@@ -213,4 +215,7 @@ if __name__ == "__main__":
     # Load model
     PATH= './modelo_normal.pth'
     modelo = torch.load(PATH)
+    
+    modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    
     main()
