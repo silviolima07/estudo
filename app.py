@@ -166,7 +166,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        im = Image.fromarray(img_data.astype("uint8"), 'L')
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
@@ -179,7 +179,7 @@ def png_export():
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
             
-        st.success("Send to Streamlit ---> Prever")    
+            
                       
         if st.button("Prever"):
             #dl_link = (
