@@ -130,8 +130,8 @@ def png_export():
     
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-    st.write("file_path da imagem png")
-    st.subheader(file_path)
+    #st.write("file_path da imagem png")
+    #st.subheader(file_path)
     #temp = file_path
     #temp = temp.replace('/','_')
     #st.subheader(temp)
@@ -185,8 +185,9 @@ def png_export():
             b64 = base64.b64encode(img_data).decode()
             
             
-                      
-        if st.button("Prever"):
+        st.info("Send to Streamlit ---> Prever.")  
+        
+        if st.button("Prever") and data is not None and data.image_data is not None:
             #dl_link = (
             #    custom_css
             #    + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
@@ -207,12 +208,9 @@ def png_export():
             #st.image(img_28_28)
             img_array = np.array(img_28_28)
             #img_array = img_array[:,:,0]
-            img_784 = img_array.reshape(-1,28*28)
+            img_784 = img_array.reshape(1,28*28)
             img_784 = img_784.astype('float32')
-            img_normalizado = img_784
-            #st.write('Predict img_normalizado')
-            #st.write(modelo_keras.predict(img_normalizado))
-            st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
+            img_normalizado = img_784/255
         
             st.title("Previsão")
                  
