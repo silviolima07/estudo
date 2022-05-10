@@ -216,8 +216,11 @@ def png_export():
             
             classes_x=np.argmax(predict_x,axis=1)
             #st.subheader("classes:")
-            st.write(classes_x)
+            #st.write(classes_x)
             pred = modelo_keras.predict(img_normalizado)
+            st.title(pred.argmax())
+            
+            pred = modelo_keras.predict(img_784)
             st.title(pred.argmax())
             
             #pred2 = mnist_keras.predict(img_normalizado.reshape(1, 28, 28, 1))
