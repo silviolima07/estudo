@@ -113,7 +113,7 @@ def png_export():
         Path("tmp/").mkdir()
     except FileExistsError:
         pass
-
+    """
     # Regular deletion of tmp files
     # Hopefully callback makes this better
     now = time.time()
@@ -127,7 +127,7 @@ def png_export():
         st.session_state["button_id"] = re.sub(
             "\d+", "", str(uuid.uuid4()).replace("-", "")
         )
-    
+    """
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
     #st.write("file_path da imagem png")
@@ -206,13 +206,11 @@ def png_export():
             img_28_28 = img.resize([28,28], Image.NEAREST)
             #st.image(img_28_28)
             img_array = np.array(img_28_28)
-            #img_array = img_array[:,:,0]
+ 
             img_784 = img_array.reshape(-1,28*28)
             img_784 = img_784.astype('float32')
             img_normalizado = img_784/255
-            #st.write('Predict img_normalizado')
-            #st.write(modelo_keras.predict(img_normalizado))
-            #st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
+            
         
             st.title("Previsão")
                  
@@ -220,6 +218,7 @@ def png_export():
             
             st.write(pred)
             st.title(pred.argmax())
+            st.title(np.argmax(pred,axis=1))
             
             
             
