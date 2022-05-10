@@ -207,5 +207,4 @@ if __name__ == "__main__":
     # Load model
     PATH= './modelo.pth'
     modelo = torch.load(PATH)
-    st.write(modelo.eval())
     main()
