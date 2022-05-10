@@ -214,8 +214,11 @@ def png_export():
             classes_x=np.argmax(predict_x,axis=1)
             st.subheader("classes:")
             st.write(classes_x)
-            pred = modelo_keras.predict(x_test[img_normalizado)
+            pred = modelo_keras.predict(img_normalizado)
             print(pred.argmax())
+            
+            pred2 = mnist_keras.predict(img_array.reshape(1, 28, 28, 1))
+            print(pred2.argmax())
             
     
         
@@ -233,5 +236,7 @@ if __name__ == "__main__":
     #modelo = torch.load(PATH)
     
     modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    
+    mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
     main()
