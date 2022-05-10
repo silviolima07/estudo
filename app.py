@@ -23,9 +23,9 @@ from torchvision import transforms
 
 from tensorflow import keras
 
-import tensorflow as tf
+#import tensorflow as tf
 
-tf.compat.v1.disable_eager_execution()
+#tf.compat.v1.disable_eager_execution()
 
 
 
