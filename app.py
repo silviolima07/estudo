@@ -197,9 +197,11 @@ def png_export():
         #st.write(file_tensor)
         #st.write(modelo.predict(file_tensor))
         img_28_28 = img.resize([28,28], Image.NEAREST)
-        st.image(img_28_28)
-        img_arr = np.array(img_28_28) / 255
-        st.write(img_arr)
+        #st.image(img_28_28)
+        img_array = np.array(img_28_28)
+        img_784 = img_array.reshape(-1,28*28)
+        img_normalizado = img_784 / 255
+        st.write(img_normalizado)
         #st.subheader(predictions = (modelo_keras.predict(img_arr) > 0.5).astype("int32"))
         
         predict_x=modelo_keras.predict(img_arr) 
