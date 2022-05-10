@@ -196,7 +196,7 @@ def png_export():
         #st.write("Imagem na forma de tensor")
         #st.write(file_tensor)
         #st.write(modelo.predict(file_tensor))
-        img_28_28 = img.resize([28,28], Resampling.NEAREST)
+        img_28_28 = img.resize([28,28], Image.NEAREST)
         #st.image(img_28_28)
         img_array = np.array(img_28_28)
         img_784 = img_array.reshape(-1,28*28)
