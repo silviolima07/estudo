@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
  
@@ -169,7 +169,9 @@ def png_export():
                     
             convert_tensor = transforms.ToTensor()
             file = file_path
-            img = Image.open(file).convert('L')
+            img = Image.open(file)
+            st.image(img)
+            img = ImageOps.grayscale(img)
             st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
