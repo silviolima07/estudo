@@ -208,7 +208,7 @@ def png_export():
             img_normalizado = img_784 / 255
             #st.write('Predict img_normalizado')
             #st.write(modelo_keras.predict(img_normalizado))
-            #st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
+            st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
             st.title("Previsões")
             #st.subheader("valores:")
@@ -224,8 +224,6 @@ def png_export():
             pred = modelo_keras.predict(img_784)
             st.title(pred.argmax())
             
-            pred = mnist_keras.predict(img_784.reshape(1,28,28,1))
-            st.title(pred.argmax())
             
             
     
