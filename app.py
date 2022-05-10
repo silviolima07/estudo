@@ -194,7 +194,7 @@ def png_export():
         #st.write("Imagem na forma de tensor")
         #st.write(file_tensor)
         #st.write(modelo.predict(file_tensor))
-        img_28_28 = img.resize(28,28)
+        img_28_28 = img.resize([28,28], Image.NEAREST)
         st.image(img_28_28)
         img_prep = img_28_28.astype('float32')
         img_prep = img_28_28/255
