@@ -199,6 +199,7 @@ def png_export():
             img_28_28 = img.resize([28,28], Image.NEAREST)
             #st.image(img_28_28)
             img_array = np.array(img_28_28)
+            img_array = img_array[:,:,0]
             img_784 = img_array.reshape(-1,28*28)
             img_784 = img_784.astype('float32')
             img_normalizado = img_784 / 255
