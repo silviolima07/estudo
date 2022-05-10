@@ -210,7 +210,7 @@ def png_export():
             classes_x=np.argmax(predict_x,axis=1)
             st.title("Previsão:")
             st.subheader(classes_x)
-            st.subheader(modelo_keras.predict_proba(img_normalizado)
+            st.subheader(modelo_keras.predict_proba(img_normalizado))
     
         
 
