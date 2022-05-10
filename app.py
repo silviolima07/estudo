@@ -220,7 +220,7 @@ def png_export():
             
             pred2 = mnist_keras.predict(img_normalizado.reshape(1, 28, 28, 1))
             st.subheader(pred2.argmax())
-            st.subheader(pred2.argmax()[0])
+            
             
     
         
