@@ -113,31 +113,11 @@ def png_export():
         Path("tmp/").mkdir()
     except FileExistsError:
         pass
-    """
-    # Regular deletion of tmp files
-    # Hopefully callback makes this better
-    now = time.time()
-    N_HOURS_BEFORE_DELETION = 1
-    for f in Path("tmp/").glob("*.png"):
-        #st.write(f, os.stat(f).st_mtime, now)
-        if os.stat(f).st_mtime < now - N_HOURS_BEFORE_DELETION * 3600:
-            Path.unlink(f)
-
-    if st.session_state["button_id"] == "":
-        st.session_state["button_id"] = re.sub(
-            "\d+", "", str(uuid.uuid4()).replace("-", "")
-        )
-    """
+    
     button_id = st.session_state["button_id"]
     file_path = f"tmp/{button_id}.png"
-    #st.write("file_path da imagem png")
     st.subheader(file_path)
-    #temp = file_path
-    #temp = temp.replace('/','_')
-    #st.subheader(temp)
-    #teste = os.rename(file_path, 'image_number.png')
     
-    #file_path = teste
     
     
     custom_css = f""" 
@@ -177,24 +157,14 @@ def png_export():
         buffered = BytesIO()
         im.save(buffered, format="PNG")
         img_data = buffered.getvalue()
-        try:
-            # some strings <-> bytes conversions necessary here
-            b64 = base64.b64encode(img_data.encode()).decode()
-            
-        except AttributeError:
-            b64 = base64.b64encode(img_data).decode()
+        
             
         st.info("Send to Streamlit ---> Prever")    
                       
         if st.button("Prever")and data is not None and data.image_data is not None:
-            #dl_link = (
-            #    custom_css
-            #    + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
-            #)
+           
             st.markdown("#### Clique:")
-            #st.success("Send to Streamlit ---> Export PNG.")
-            #st.markdown(dl_link, unsafe_allow_html=True)
-        
+                    
             convert_tensor = transforms.ToTensor()
             file = file_path
             img = Image.open(file).convert('LA')
@@ -218,7 +188,6 @@ def png_export():
             
             st.write(pred)
             st.title(pred.argmax())
-            st.title(np.argmax(pred,axis=1))
             
             
             
