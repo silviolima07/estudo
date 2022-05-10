@@ -166,7 +166,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), 'L')
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
@@ -192,7 +192,7 @@ def png_export():
         
             convert_tensor = transforms.ToTensor()
             file = file_path
-            img = Image.open(file)
+            img = Image.open(file).convert('L')
             #st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
