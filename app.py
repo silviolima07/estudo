@@ -171,7 +171,7 @@ def png_export():
             file = file_path
             img = Image.open(file)
             st.image(img)
-            img = ImageOps.grayscale(img)
+            img = img.convert('LA')
             st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
