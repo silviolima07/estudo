@@ -200,7 +200,11 @@ def png_export():
         st.image(img_28_28)
         img_arr = np.array(img_28_28) / 255
         st.write(img_arr)
-        st.subheader(modelo_keras.predict_classes(img_arr,1,verbose=0)[0])
+        st.subheader(predictions = (modelo_keras.predict(img_arr) > 0.5).astype("int32"))
+        
+        predict_x=modelo_keras.predict(img_arr) 
+        classes_x=np.argmax(predict_x,axis=1)
+        st.subheader(classes_x)
     
         
 
