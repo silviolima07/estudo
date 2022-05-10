@@ -200,10 +200,11 @@ def png_export():
             #st.image(img_28_28)
             img_array = np.array(img_28_28)
             img_784 = img_array.reshape(-1,28*28)
+            img_784 = img_784.astype('float32')
             img_normalizado = img_784 / 255
-            st.write('Predict img_normalizado')
-            st.write(modelo_keras.predict(img_normalizado))
-            st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
+            #st.write('Predict img_normalizado')
+            #st.write(modelo_keras.predict(img_normalizado))
+            #st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
             predict_x=modelo_keras.predict(img_normalizado) 
             classes_x=np.argmax(predict_x,axis=1)
