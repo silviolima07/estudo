@@ -206,11 +206,15 @@ def png_export():
             #st.write(modelo_keras.predict(img_normalizado))
             #st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
+            st.title("Previsões")
+            st.subheader("valores:")
             predict_x=modelo_keras.predict(img_normalizado) 
+            st.write(predict_x)
+            
             classes_x=np.argmax(predict_x,axis=1)
-            st.title("Previsão:")
-            st.subheader(classes_x)
-            st.subheader(modelo_keras.predict_proba(img_normalizado))
+            st.subheader("classes:")
+            st.write(classes_x)
+            
     
         
 
