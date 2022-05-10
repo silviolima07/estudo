@@ -179,36 +179,36 @@ def png_export():
         except AttributeError:
             b64 = base64.b64encode(img_data).decode()
                       
+        if st.button("Teste"):
+            dl_link = (
+                custom_css
+                + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
+            )
+            st.markdown("#### Clique:")
+            st.success("Send to Streamlit ---> Export PNG.")
+            st.markdown(dl_link, unsafe_allow_html=True)
         
-        dl_link = (
-            custom_css
-            + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
-        )
-        st.markdown("#### Clique:")
-        st.success("Send to Streamlit ---> Export PNG.")
-        st.markdown(dl_link, unsafe_allow_html=True)
+            convert_tensor = transforms.ToTensor()
+            file = file_path
+            img = Image.open(file)
+            #st.image(img)
+            file_tensor = convert_tensor(img)
+            #st.write("Imagem na forma de tensor")
+            #st.write(file_tensor)
+            #st.write(modelo.predict(file_tensor))
+            img_28_28 = img.resize([28,28], Image.NEAREST)
+            #st.image(img_28_28)
+            img_array = np.array(img_28_28)
+            img_784 = img_array.reshape(-1,28*28)
+            img_normalizado = img_784 / 255
+            st.write('Predict img_normalizado')
+            st.write(modelo_keras.predict(img_normalizado))
+            st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
-        convert_tensor = transforms.ToTensor()
-        file = file_path
-        img = Image.open(file)
-        #st.image(img)
-        file_tensor = convert_tensor(img)
-        #st.write("Imagem na forma de tensor")
-        #st.write(file_tensor)
-        #st.write(modelo.predict(file_tensor))
-        img_28_28 = img.resize([28,28], Image.NEAREST)
-        #st.image(img_28_28)
-        img_array = np.array(img_28_28)
-        img_784 = img_array.reshape(-1,28*28)
-        img_normalizado = img_784 / 255
-        st.write('Predict img_normalizado')
-        st.write(modelo_keras.predict(img_normalizado))
-        st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
-        
-        predict_x=modelo_keras.predict(img_normalizado) 
-        classes_x=np.argmax(predict_x,axis=1)
-        st.title("Previsão:")
-        st.subheader(classes_x)
+            predict_x=modelo_keras.predict(img_normalizado) 
+            classes_x=np.argmax(predict_x,axis=1)
+            st.title("Previsão:")
+            st.subheader(classes_x)
     
         
 
