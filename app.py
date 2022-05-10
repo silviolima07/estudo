@@ -203,7 +203,7 @@ def png_export():
         img_normalizado = img_784 / 255
         st.write('Predict img_normalizado')
         st.write(modelo_keras.predict(img_normalizado))
-        st.subheader(predictions = (modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
+        st.subheader((modelo_keras.predict(img_normalizado) > 0.5).astype("int32"))
         
         predict_x=modelo_keras.predict(img_normalizado) 
         classes_x=np.argmax(predict_x,axis=1)
