@@ -217,6 +217,8 @@ def png_export():
             st.title("Previsão")
                  
             pred = modelo_keras.predict(img_normalizado)
+            
+            st.write(pred)
             st.title(pred.argmax())
             
             
