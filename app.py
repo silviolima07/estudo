@@ -71,7 +71,7 @@ def draw_app():
         #stroke_color = st.sidebar.color_picker("Stroke color hex: ")
         #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
         #bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
-        #realtime_update = st.sidebar.checkbox("Update in realtime", False)
+        realtime_update = st.sidebar.checkbox("Update in realtime", False)
 
         # Create a canvas component
         canvas_result = st_canvas(
@@ -81,8 +81,8 @@ def draw_app():
             background_color="rgba(0, 0, 0, 0.3)",
             bg_image=None,
             background_image=None,
-            realtime_update=True,
-            update_streamlit=realtime_update,
+            realtime_update=realtime_update,
+            update_streamlit=True,
             height=150,
             drawing_mode=   'freedraw',
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
