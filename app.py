@@ -103,6 +103,8 @@ def invert_color(img):
     r,g,b,a = img.split()
     rgb_image = Image.merge('RGB', (r,g,b))
     inverted_image = ImageOps.invert(rgb_image)
+
+    st.image(inverted_image)
     
     r2,g2,b2 = inverted_image.split()
     final_transparent_image = Image.merge('RGBA', (r2,g2,b2,a))
