@@ -60,7 +60,8 @@ def draw_app():
     
     with st.echo("below"):
         # Specify canvas parameters in application
-        #drawing_mode = st.sidebar.selectbox(
+        drawing_mode = "freedraw"
+        #st.sidebar.selectbox(
         #    "Drawing tool:",
         #    ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
         #)
@@ -84,7 +85,7 @@ def draw_app():
             realtime_update=realtime_update,
             update_streamlit=True,
             height=150,
-            drawing_mode=   'freedraw',
+            drawing_mode=   drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar=st.sidebar.checkbox("Display toolbar", True),
             key="draw_app",
