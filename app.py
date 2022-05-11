@@ -98,7 +98,15 @@ def draw_app():
 
         """
 
-
+def invert_color(img):
+    
+    r,g,b,a - img.split()
+    rgb_image = Image.merge('RGB', (r,g,b))
+    inverted_image - ImageOps.invert(rgb_image)
+    
+    r2,g2,b2 = inverted_image.split()
+    final_transparent_image = Image.merge('RGBA', (r2,g2,b2,a))
+    return final_transparent_image
 
 def png_export():
     st.markdown(
@@ -170,7 +178,9 @@ def png_export():
             convert_tensor = transforms.ToTensor()
             file = file_path
             img = Image.open(file)
-            st.image(img)
+            img_inverted = invert_color(img)
+            st.image(img_inverted)
+            img = img_inverted
             #img = img.convert('LA')
             #st.image(img)
             file_tensor = convert_tensor(img)
