@@ -77,7 +77,7 @@ def draw_app():
         canvas_result = st_canvas(
             fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
             stroke_width=stroke_width,
-            stroke_color=stroke_color,
+            stroke_color="rgba(255, 255, 255)",
             background_color="rgba(0, 0, 0, 0.3)",
             background_image=Image.open(bg_image) if bg_image else None,
             update_streamlit=realtime_update,
