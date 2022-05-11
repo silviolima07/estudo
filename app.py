@@ -95,6 +95,9 @@ def draw_app():
             
             img_data = canvas_result.image_data
             im = Image.fromarray(img_data.astype("uint8"), mode="RGB")
+            
+            button_id = st.session_state["button_id"]
+            file_path = f"tmp/{button_id}.png"
             im.save(file_path, "PNG")
             img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
