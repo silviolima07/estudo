@@ -80,7 +80,7 @@ def draw_app():
             stroke_color="rgba(255, 255, 255)",
             background_color="rgba(0, 0, 0, 0.3)",
             bg_image=None,
-            background_image=Image.open(bg_image) if bg_image else None,
+            background_image=None,
             realtime_update=True,
             update_streamlit=realtime_update,
             height=150,
