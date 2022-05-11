@@ -101,7 +101,7 @@ def draw_app():
 def invert_color(img_orig):
     
     im = Image.new("RGB", img_orig.size, (255, 255, 255))
-    im.paste(img_orig, mask=img_orig.split()[3])
+    im.paste(img_orig, mask=img_orig.split()[2])
     # Convert down to greyscale
     im = im.convert("L") 
     st.image(im)
