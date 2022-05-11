@@ -100,15 +100,14 @@ def draw_app():
 
 def invert_color(img):
     
-    r,g,b,a = img.split()
-    rgb_image = Image.merge('RGB', (r,g,b))
-    inverted_image = ImageOps.invert(rgb_image)
-
-    st.image(inverted_image)
+    image_arr = np.array(img)
+    colors_arr = image_arr[:,:,:3]
+    inverted_color =  255 - colors_arr 
+    alpha_ch = image_arr[:,:,:3]
+    inverted_arr = np.dstack((colors_arr,alpha_ch))
+    inverted = Image.fromarray(inverted_arr)
     
-    r2,g2,b2 = inverted_image.split()
-    final_transparent_image = Image.merge('RGBA', (r2,g2,b2,a))
-    return final_transparent_image
+    return inverted
 
 def png_export():
     st.markdown(
