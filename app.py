@@ -99,11 +99,11 @@ def draw_app():
             img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
             
-        if canvas_result.json_data is not None:
-            objects = pd.json_normalize(canvas_result.json_data["objects"])
-            for col in objects.select_dtypes(include=["object"]).columns:
-                objects[col] = objects[col].astype("str")
-            st.dataframe(objects)
+        #if canvas_result.json_data is not None:
+        #    objects = pd.json_normalize(canvas_result.json_data["objects"])
+        #    for col in objects.select_dtypes(include=["object"]).columns:
+        #        objects[col] = objects[col].astype("str")
+        #    st.dataframe(objects)
 
  
 
