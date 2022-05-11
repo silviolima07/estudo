@@ -181,11 +181,11 @@ def png_export():
             file = file_path
             img = Image.open(file)
             st.image(img)
-            img_inverted = invert_color(img)
-            st.image(img_inverted)
-            img = img_inverted
-            #img = img.convert('LA')
-            #st.image(img)
+            #img_inverted = invert_color(img)
+            #st.image(img_inverted)
+            #img = img_inverted
+            img = img.convert('1')
+            st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
             #st.write(file_tensor)
