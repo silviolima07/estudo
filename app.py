@@ -105,6 +105,9 @@ def invert_color(img):
     inverted_color =  255 - colors_arr 
     inverted = Image.fromarray(inverted_color)
     
+    st.image(ImageOps.invert(img))
+    st.image(ImageOps.autocontrast(img))
+    
     return inverted
 
 def png_export():
@@ -160,7 +163,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGB")
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
