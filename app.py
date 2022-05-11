@@ -103,9 +103,7 @@ def invert_color(img):
     image_arr = np.array(img)
     colors_arr = image_arr[:,:,:3]
     inverted_color =  255 - colors_arr 
-    alpha_ch = image_arr[:,:,:3]
-    inverted_arr = np.dstack((colors_arr,alpha_ch))
-    inverted = Image.fromarray(inverted_arr)
+    inverted = Image.fromarray(inverted_color)
     
     return inverted
 
@@ -162,7 +160,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGB")
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
