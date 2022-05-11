@@ -13,7 +13,6 @@ import pandas as pd
 import streamlit as st
 from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
-from svgpathtools import parse_path
  
 
 
@@ -37,6 +36,7 @@ def main():
         st.session_state["button_id"] = ""
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
+    draw_app()    
     PAGES = {
         "Draw numbers from 0 to 9": png_export,
     }
