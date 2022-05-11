@@ -57,7 +57,7 @@ def draw_app():
     * In polygon mode, left-click to add a point, right-click to close the polygon, double-click to remove the latest point
     """
     )
-    """
+    
     with st.echo("below"):
         # Specify canvas parameters in application
         drawing_mode = st.sidebar.selectbox(
@@ -87,31 +87,18 @@ def draw_app():
             key="draw_app",
         )
 
-        # Do something interesting with the image data and paths
-        #if canvas_result.image_data is not None:
-        #    st.image(canvas_result.image_data)
-        #if canvas_result.json_data is not None:
-        #    objects = pd.json_normalize(canvas_result.json_data["objects"])
-        #    for col in objects.select_dtypes(include=["object"]).columns:
-        #        objects[col] = objects[col].astype("str")
-        #    st.dataframe(objects)
+         Do something interesting with the image data and paths
+        if canvas_result.image_data is not None:
+            st.image(canvas_result.image_data)
+        if canvas_result.json_data is not None:
+            objects = pd.json_normalize(canvas_result.json_data["objects"])
+            for col in objects.select_dtypes(include=["object"]).columns:
+                objects[col] = objects[col].astype("str")
+            st.dataframe(objects)
 
-        """
+ 
 
-def invert_color(img_orig):
-    
-    im = Image.new("RGB", img_orig.size, (255, 255, 255))
-    im.paste(img_orig, mask=img_orig.split()[2])
-    # Convert down to greyscale
-    im = im.convert("L") 
-    st.image(im)
-    # Invert: Only works on 'L' images
-    im = ImageOps.invert(im)
-    st.image(im)
-    # Pure black and white
-    im = im.convert("1")
-    st.image(im)
-    
+
 
 def png_export():
     st.markdown(
@@ -184,9 +171,9 @@ def png_export():
             file = file_path
             img = Image.open(file)
             st.image(img)
-            img_inverted = invert_color(img)
+            #img_inverted = invert_color(img)
             
-            img = img_inverted
+            #img = img_inverted
             #img = img.convert('LA')
             #st.image(img)
             file_tensor = convert_tensor(img)
