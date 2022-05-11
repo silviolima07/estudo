@@ -98,7 +98,9 @@ def draw_app():
             
             button_id = st.session_state["button_id"]
             file_path = f"tmp/{button_id}.png"
+            
             im.save(file_path, "PNG")
+            img = Image.open(file_path)
             img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
             st.image(img_28_28)
             
