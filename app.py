@@ -100,9 +100,9 @@ def draw_app():
 
 def invert_color(img):
     
-    r,g,b,a - img.split()
+    r,g,b,a = img.split()
     rgb_image = Image.merge('RGB', (r,g,b))
-    inverted_image - ImageOps.invert(rgb_image)
+    inverted_image = ImageOps.invert(rgb_image)
     
     r2,g2,b2 = inverted_image.split()
     final_transparent_image = Image.merge('RGBA', (r2,g2,b2,a))
