@@ -81,7 +81,6 @@ def draw_app():
             stroke_color="rgba(255, 255, 255)",
             background_color="rgba(0, 0, 0, 0.3)",
             background_image=None,
-            realtime_update=realtime_update,
             update_streamlit=True,
             height=150,
             drawing_mode=   drawing_mode,
