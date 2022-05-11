@@ -177,6 +177,7 @@ def png_export():
             convert_tensor = transforms.ToTensor()
             file = file_path
             img = Image.open(file)
+            st.image(img)
             img_inverted = invert_color(img)
             st.image(img_inverted)
             img = img_inverted
