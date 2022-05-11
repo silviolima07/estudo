@@ -98,17 +98,20 @@ def draw_app():
 
         """
 
-def invert_color(img):
+def invert_color(img_orig):
     
-    image_arr = np.array(img)
-    colors_arr = image_arr[:,:,:3]
-    inverted_color =  255 - colors_arr 
-    inverted = Image.fromarray(inverted_color)
+    im = Image.new("RGB", img_orig.size, (255, 255, 255))
+    im.paste(img_orig, mask=img_orig.split()[3])
+    # Convert down to greyscale
+    im = im.convert("L") 
+    st.image(im)
+    # Invert: Only works on 'L' images
+    im = ImageOps.invert(im)
+    st.image(im)
+    # Pure black and white
+    im = im.convert("1")
+    st.image(im)
     
-    st.image(ImageOps.invert(img))
-    st.image(ImageOps.autocontrast(img))
-    
-    return inverted
 
 def png_export():
     st.markdown(
@@ -163,7 +166,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGB")
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
@@ -181,11 +184,11 @@ def png_export():
             file = file_path
             img = Image.open(file)
             st.image(img)
-            #img_inverted = invert_color(img)
-            #st.image(img_inverted)
-            #img = img_inverted
-            img = img.convert('1')
-            st.image(img)
+            img_inverted = invert_color(img)
+            
+            img = img_inverted
+            #img = img.convert('LA')
+            #st.image(img)
             file_tensor = convert_tensor(img)
             #st.write("Imagem na forma de tensor")
             #st.write(file_tensor)
