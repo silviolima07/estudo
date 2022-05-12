@@ -73,13 +73,13 @@ def draw_app():
         #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
         #bg_image = 'png'
         realtime_update = st.sidebar.checkbox("Update in realtime", False)
-
+        st.subheader("Imagem 0")
         # Create a canvas component
         canvas_result = st_canvas(
-            fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+            fill_color="rgba(0,0, 0)",  # Fixed fill color with some opacity
             stroke_width=stroke_width,
             stroke_color="rgba(255, 255, 255)",
-            background_color="rgba(0, 0, 0, 0.3)",
+            background_color="rgba(0, 0, 0)",
             background_image=None,
             update_streamlit=True,
             height=150,
@@ -102,6 +102,7 @@ def draw_app():
             im.save(file_path, "PNG")
             img = Image.open(file_path)
             img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
+            st.subheader("Imagem 28x28")
             st.image(img_28_28)
             
         #if canvas_result.json_data is not None:
@@ -167,7 +168,7 @@ def png_export():
     data = st_canvas(update_streamlit=False, key="png_export")
     if data is not None and data.image_data is not None:
         img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGB")
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
         im.save(file_path, "PNG")
 
         buffered = BytesIO()
@@ -184,6 +185,7 @@ def png_export():
             convert_tensor = transforms.ToTensor()
             file = file_path
             img = Image.open(file)
+            st.subheader("Imagem1")
             st.image(img)
             #img_inverted = invert_color(img)
             
