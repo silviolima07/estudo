@@ -205,9 +205,9 @@ def png_export():
         
             st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_normalizado)
-            st.write(pred)
-            st.title(pred.argmax())
+            #pred = modelo_keras.predict(img_normalizado)
+            #st.write(pred)
+            #st.title(pred.argmax())
             
            
     
@@ -225,8 +225,8 @@ if __name__ == "__main__":
     #PATH= './modelo_normal.pth'
     #modelo = torch.load(PATH)
     
-    modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    #modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
-    mnist_keras = keras.models.load_model('./mnist_keras.h5')
+    #mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
     main()
