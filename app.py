@@ -36,19 +36,8 @@ def main():
         st.session_state["button_id"] = ""
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
-    draw_app()    
-    PAGES = {
-        "Draw numbers from 0 to 9": draw_app,
+    st.write('TESTE')
     }
-    page = st.sidebar.selectbox("Opções: ", options=list(PAGES.keys()))
-    PAGES[page]()
-
-
-
-
-
-def draw_app():
-    st.sidebar.header("Configuration")
     
     with st.echo("below"):
         # Specify canvas parameters in application
