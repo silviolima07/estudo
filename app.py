@@ -79,7 +79,7 @@ def full_app():
             background_color="rgba(0, 0, 0)",
             background_image=None,
             update_streamlit=True,
-            height=150,
+            height=450,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar=st.sidebar.checkbox("Display toolbar", True),
@@ -95,7 +95,12 @@ def full_app():
                 objects[col] = objects[col].astype("str")
             st.dataframe(objects)
 
-
+        im = canvas_result.image_data
+        
+           
+        img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
+        st.subheader("Imagem 28x28")
+        st.image(img_28_28)
 
 
 
