@@ -37,7 +37,7 @@ def main():
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
     st.write('TESTE')
-    }
+    
     
     with st.echo("below"):
         # Specify canvas parameters in application
