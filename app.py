@@ -79,7 +79,7 @@ def full_app():
             stroke_width=stroke_width,
             stroke_color="rgba(255, 255, 255)",
             background_color="rgba(0, 0, 0)",
-            background_image= None # Image.open(bg_image) if bg_image else None,
+            background_image= None, # Image.open(bg_image) if bg_image else None,
             update_streamlit=realtime_update,
             height=150,
             drawing_mode=drawing_mode,
