@@ -43,7 +43,7 @@ def full_app():
     with st.echo("below"):
         drawing_mode = st.sidebar.selectbox(
             "Drawing tool:",
-            ("numbers from 0 to 9"),
+            ("numbers"),
         )
         stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
@@ -76,18 +76,18 @@ def full_app():
                 objects[col] = objects[col].astype("str")
             st.dataframe(objects)
 
-        img_data = canvas_result.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        #img_data = canvas_result.image_data
+        #im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
             
-        button_id = st.session_state["button_id"]
-        file_path = f"tmp/{button_id}.png"
-        im.save(file_path, "PNG")
-        img = Image.open(file_path)    
+        #button_id = st.session_state["button_id"]
+        #file_path = f"tmp/{button_id}.png"
+        #im.save(file_path, "PNG")
+        #img = Image.open(file_path)    
         
            
-        img_28_28 = img.resize([50,50], Image.Resampling.NEAREST)
-        st.subheader("Imagem 28x28")
-        st.image(img_28_28)
+        #img_28_28 = img.resize([50,50], Image.Resampling.NEAREST)
+        #st.subheader("Imagem 28x28")
+        #st.image(img_28_28)
 
 
 
