@@ -95,7 +95,10 @@ def full_app():
                 objects[col] = objects[col].astype("str")
             st.dataframe(objects)
 
-        im = canvas_result.image_data
+        img_data = canvas_result.image_data
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+            
+       
         
            
         img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
