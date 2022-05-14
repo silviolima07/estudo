@@ -132,9 +132,7 @@ def center_circle_app():
     )
     bg_image = Image.open("img/tennis-balls.jpg")
 
-    with open("saved_state.json", "r") as f:
-        saved_state = json.load(f)
-
+  
     canvas_result = st_canvas(
         fill_color="rgba(255, 165, 0, 0.2)",  # Fixed fill color with some opacity
         stroke_width=5,
