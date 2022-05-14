@@ -64,7 +64,7 @@ def draw_app():
         #stroke_color = st.sidebar.color_picker("Stroke color hex: ")
         #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
         #bg_image = 'png'
-        realtime_update = st.sidebar.checkbox("Update in realtime", False)
+        realtime_update = False # st.sidebar.checkbox("Update in realtime", False)
         st.subheader("Imagem 0")
         # Create a canvas component
         canvas_result = st_canvas(
@@ -78,7 +78,7 @@ def draw_app():
             drawing_mode=   drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar=st.sidebar.checkbox("Display toolbar", True),
-            key="draw_app",
+            #key="draw_app",
         )
 
         # Do something interesting with the image data and paths
@@ -156,4 +156,4 @@ if __name__ == "__main__":
     
     #mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
-    main()
+
