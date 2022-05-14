@@ -88,8 +88,8 @@ def full_app():
         stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
             point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
-        stroke_color = "rgba(255, 255, 255)" #st.sidebar.color_picker("Stroke color hex: ")
-        bg_color = "rgba(0, 0, 0)" # st.sidebar.color_picker("Background color hex: ", "#eee")
+        stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+        bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
         bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
@@ -101,7 +101,7 @@ def full_app():
             background_color=bg_color,
             background_image=Image.open(bg_image) if bg_image else None,
             update_streamlit=realtime_update,
-            height=450,
+            height=150,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar=st.sidebar.checkbox("Display toolbar", True),
@@ -139,7 +139,7 @@ def center_circle_app():
         fill_color="rgba(255, 165, 0, 0.2)",  # Fixed fill color with some opacity
         stroke_width=5,
         stroke_color="black",
-        background_image=None,
+        background_image=bg_image,
         initial_drawing=saved_state
         if st.sidebar.checkbox("Initialize with saved state", False)
         else None,
@@ -284,36 +284,6 @@ def png_export():
         )
         st.markdown(dl_link, unsafe_allow_html=True)
 
-
-def compute_arc_length():
-    st.markdown(
-        """
-    Using an external SVG manipulation library like [svgpathtools](https://github.com/mathandy/svgpathtools)
-    You can do some interesting things on drawn paths.
-    In this example we compute the length of any drawn path.
-    """
-    )
-    with st.echo("below"):
-        bg_image = Image.open("img/annotation.jpeg")
-
-        canvas_result = st_canvas(
-            stroke_color="yellow",
-            stroke_width=3,
-            background_image=bg_image,
-            height=320,
-            width=512,
-            drawing_mode="freedraw",
-            key="compute_arc_length",
-        )
-        if (
-            canvas_result.json_data is not None
-            and len(canvas_result.json_data["objects"]) != 0
-        ):
-            df = pd.json_normalize(canvas_result.json_data["objects"])
-            paths = df["path"].tolist()
-            for ind, path in enumerate(paths):
-                path = parse_path(" ".join([str(e) for line in path for e in line]))
-                st.write(f"Path {ind} has length {path.length():.3f} pixels")
 
 
 if __name__ == "__main__":
