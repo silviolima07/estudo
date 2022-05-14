@@ -42,7 +42,7 @@ def full_app():
             point_display_radius = st.sidebar.slider("Point display radius: ", 1, 25, 3)
         stroke_color = "rgba(255, 255, 255)" #st.sidebar.color_picker("Stroke color hex: ")
         bg_color = "rgba(0, 0, 0)" # st.sidebar.color_picker("Background color hex: ", "#eee")
-        bg_image = None,st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
+        bg_image = None,#st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = True # st.sidebar.checkbox("Update in realtime", True)
 
         # Create a canvas component
@@ -56,7 +56,7 @@ def full_app():
             height=450,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar=st.sidebar.checkbox("Display toolbar", False),
+            display_toolbar= False, #st.sidebar.checkbox("Display toolbar", False),
             key="full_app",
         )
 
