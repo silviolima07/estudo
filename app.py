@@ -89,14 +89,14 @@ def full_app():
             st.dataframe(objects)
 
         img_data = canvas_result.image_data
-        #im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
-            
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        st.image(im)
        
         
            
-        img_28_28 = img_data.resize([50,50], Image.Resampling.NEAREST)
-        st.subheader("Imagem 28x28")
-        st.image(img_28_28)
+        #img_28_28 = img_data.resize([50,50], Image.Resampling.NEAREST)
+        #st.subheader("Imagem 28x28")
+        #st.image(img_28_28)
 
 
 
