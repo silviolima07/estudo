@@ -33,7 +33,19 @@ def main():
 
 def about():
     
-    st.markdown("Teste")
+    st.markdown(
+        """
+    What you can do with Drawable Canvas:
+
+    * Draw freely, lines, circles and boxes on the canvas, with options on stroke & fill
+    * Rotate, skew, scale, move any object of the canvas on demand
+    * Select a background color or image to draw on
+    * Get image data and every drawn object properties back to Streamlit !
+    * Choose to fetch back data in realtime or on demand with a button
+    * Undo, Redo or Drop canvas
+    * Save canvas data as JSON to reuse for another session
+    """
+    )
 
 
 def full_app():
@@ -43,7 +55,7 @@ def full_app():
     with st.echo("below"):
         drawing_mode = st.sidebar.selectbox(
             "Drawing tool:",
-            ("numbers"),
+            ("numbers from 0 to 9"),
         )
         stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
@@ -76,23 +88,25 @@ def full_app():
                 objects[col] = objects[col].astype("str")
             st.dataframe(objects)
 
-        #img_data = canvas_result.image_data
-        #im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        img_data = canvas_result.image_data
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
             
-        #button_id = st.session_state["button_id"]
-        #file_path = f"tmp/{button_id}.png"
-        #im.save(file_path, "PNG")
-        #img = Image.open(file_path)    
+       
         
            
-        #img_28_28 = img.resize([50,50], Image.Resampling.NEAREST)
-        #st.subheader("Imagem 28x28")
-        #st.image(img_28_28)
+        img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
+        st.subheader("Imagem 28x28")
+        st.image(img_28_28)
 
 
 
 def png_export():
-    
+    st.markdown(
+        """
+    Realtime update is disabled for this demo. 
+    Press the 'Download' button at the bottom of canvas to update exported image.
+    """
+    )
     try:
         Path("tmp/").mkdir()
     except FileExistsError:
@@ -143,6 +157,26 @@ def png_export():
                 }}
         </style> """
 
+    data = st_canvas(update_streamlit=False, key="png_export")
+    if data is not None and data.image_data is not None:
+        img_data = data.image_data
+        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        im.save(file_path, "PNG")
+
+        buffered = BytesIO()
+        im.save(buffered, format="PNG")
+        img_data = buffered.getvalue()
+        try:
+            # some strings <-> bytes conversions necessary here
+            b64 = base64.b64encode(img_data.encode()).decode()
+        except AttributeError:
+            b64 = base64.b64encode(img_data).decode()
+
+        dl_link = (
+            custom_css
+            + f'<a download="{file_path}" id="{button_id}" href="data:file/txt;base64,{b64}">Export PNG</a><br></br>'
+        )
+        st.markdown(dl_link, unsafe_allow_html=True)
 
 
 
