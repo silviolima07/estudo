@@ -156,4 +156,6 @@ if __name__ == "__main__":
     
     #mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
+    main()
+    
 
