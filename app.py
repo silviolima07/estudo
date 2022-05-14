@@ -44,16 +44,7 @@ def main():
 
 
 def about():
-    st.markdown(
-        """
-    Welcome to the demo of [Streamlit Drawable Canvas](https://github.com/andfanilo/streamlit-drawable-canvas).
     
-    On this site, you will find a full use case for this Streamlit component, and answers to some frequently asked questions.
-    
-    :pencil: [Demo source code](https://github.com/andfanilo/streamlit-drawable-canvas-demo/)    
-    """
-    )
-    st.image("img/demo.gif")
     st.markdown(
         """
     What you can do with Drawable Canvas:
