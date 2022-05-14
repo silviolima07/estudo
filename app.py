@@ -39,7 +39,7 @@ def full_app():
         
         drawing_mode = st.sidebar.selectbox(
             "Drawing tool:",
-            ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+            ("freedraw"),
         )
         stroke_width = 10 # st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
@@ -161,12 +161,7 @@ def color_annotation_app():
 
 
 def png_export():
-    st.markdown(
-        """
-    Realtime update is disabled for this demo. 
-    Press the 'Download' button at the bottom of canvas to update exported image.
-    """
-    )
+    
     try:
         Path("tmp/").mkdir()
     except FileExistsError:
