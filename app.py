@@ -79,10 +79,13 @@ def full_app():
         img_data = canvas_result.image_data
         im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
             
-       
+        button_id = st.session_state["button_id"]
+        file_path = f"tmp/{button_id}.png"
+        im.save(file_path, "PNG")
+        img = Image.open(file_path)    
         
            
-        img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
+        img_28_28 = img.resize([50,50], Image.Resampling.NEAREST)
         st.subheader("Imagem 28x28")
         st.image(img_28_28)
 
