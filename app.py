@@ -77,7 +77,7 @@ def draw_app():
             height=450,
             drawing_mode=   drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar=st.sidebar.checkbox("Display toolbar", True),
+            display_toolbar= True# st.sidebar.checkbox("Display toolbar", True),
             #key="draw_app",
         )
 
