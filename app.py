@@ -68,9 +68,9 @@ def full_app():
         #)
         stroke_width = 10 #st.sidebar.slider("Stroke width: ", 1, 25, 3)
        
-        stroke_color = st.sidebar.color_picker("Stroke color hex: ")
-        bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
-        bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
+        #stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+        #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
+        #bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
         realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
         # Create a canvas component
