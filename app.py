@@ -62,7 +62,7 @@ def full_app():
     with st.echo("below"):
         drawing_mode = st.sidebar.selectbox(
             "Drawing tool:",
-            ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+            ("draw numbers from 0 to 9", "line", "rect", "circle", "transform", "polygon", "point"),
         )
         stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
