@@ -88,9 +88,9 @@ def full_app():
                 objects[col] = objects[col].astype("str")
             st.dataframe(objects)
 
-        img_data = canvas_result.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
-        st.image(im)
+        #img_data = canvas_result.image_data
+        #im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
+        #st.image(im)
        
         
            
