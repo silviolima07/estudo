@@ -21,7 +21,6 @@ def main():
     if "color_to_label" not in st.session_state:
         st.session_state["color_to_label"] = {}
     PAGES = {
-        "About": about,
         "Basic example": full_app,
     }
     page = st.sidebar.selectbox("Page:", options=list(PAGES.keys()))
