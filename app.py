@@ -62,7 +62,8 @@ def full_app():
     with st.echo("below"):
         # Specify canvas parameters in application
         drawing_mode = st.sidebar.selectbox(
-        "Drawing tool:",("Draw numbers from 0 to 9"),
+         "Drawing tool:",
+            ("freedraw""),
         )
         stroke_width = 10 #st.sidebar.slider("Stroke width: ", 1, 25, 3)
        
