@@ -101,7 +101,7 @@ def draw_app():
             
             #im.save(file_path, "PNG")
             #img = Image.open(file_path)
-            img_28_28 = img.resize([50,50], Image.Resampling.NEAREST)
+            img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
             st.subheader("Imagem 28x28")
             st.image(img_28_28)
             
