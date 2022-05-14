@@ -22,7 +22,7 @@ import torch
 
 from torchvision import transforms
 
-#from tensorflow import keras
+from tensorflow import keras
 
 #import tensorflow as tf
 
@@ -49,14 +49,6 @@ def main():
 
 def draw_app():
     st.sidebar.header("Configuration")
-    st.markdown(
-        """
-    Draw on the canvas, get the drawings back to Streamlit!
-    * Configure canvas in the sidebar
-    * In transform mode, double-click an object to remove it
-    * In polygon mode, left-click to add a point, right-click to close the polygon, double-click to remove the latest point
-    """
-    )
     
     with st.echo("below"):
         # Specify canvas parameters in application
@@ -85,7 +77,7 @@ def draw_app():
             height=450,
             drawing_mode=   drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar=st.sidebar.checkbox("Display toolbar", True),
+            display_toolbar=st.sidebar.checkbox("Display toolbar", False),
             key="draw_app",
         )
 
@@ -160,7 +152,7 @@ if __name__ == "__main__":
     #PATH= './modelo_normal.pth'
     #modelo = torch.load(PATH)
     
-    #modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
     #mnist_keras = keras.models.load_model('./mnist_keras.h5')
     
