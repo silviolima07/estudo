@@ -105,88 +105,15 @@ def draw_app():
             st.subheader("Imagem 28x28")
             st.image(img_28_28)
             
-        #if canvas_result.json_data is not None:
-        #    objects = pd.json_normalize(canvas_result.json_data["objects"])
-        #    for col in objects.select_dtypes(include=["object"]).columns:
-        #        objects[col] = objects[col].astype("str")
-        #    st.dataframe(objects)
-
- 
-
-
-
-def png_export():
-    st.markdown(
-        """
-    ### Desenhe um número de 0 a 9. 
-    """
-    )
-    #st.markdown(
-    #    """
-    ##### - clique em Send to Streamlit e depois Export PNG.
-    #"""
-    #)
-    try:
-        Path("tmp/").mkdir()
-    except FileExistsError:
-        pass
-    
-    button_id = st.session_state["button_id"]
-    file_path = f"tmp/{button_id}.png"
-    st.subheader(file_path)
-    
-    
-    
-    custom_css = f""" 
-        <style>
-            #{button_id} {{
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background-color: rgb(0,0,0);
-                color: rgb(255,255,255);
-                padding: .25rem .75rem;
-                position: relative;
-                text-decoration: none;
-                border-radius: 4px;
-                border-width: 1px;
-                border-style: solid;
-                border-color: rgb(230, 234, 241);
-                border-image: initial;
-            }} 
-            #{button_id}:hover {{
-                border-color: rgb(246, 51, 102);
-                color: rgb(246, 51, 102);
-            }}
-            #{button_id}:active {{
-                box-shadow: none;
-                background-color: rgb(246, 51, 102);
-                color: white;
-                }}
-        </style> """
-    
-    data = st_canvas(update_streamlit=False, key="png_export")
-    if data is not None and data.image_data is not None:
-        img_data = data.image_data
-        im = Image.fromarray(img_data.astype("uint8"), mode="RGBA")
-        im.save(file_path, "PNG")
-
-        buffered = BytesIO()
-        im.save(buffered, format="PNG")
-        img_data = buffered.getvalue()
-        
-            
-        st.info("Send to Streamlit ---> Prever")    
-                      
-        if st.button("Prever")and data is not None and data.image_data is not None:
+            if st.button("Prever")and data is not None and data.image_data is not None:
            
             st.markdown("#### Clique:")
                     
-            convert_tensor = transforms.ToTensor()
-            file = file_path
-            img = Image.open(file)
-            st.subheader("Imagem1")
-            st.image(img)
+            #convert_tensor = transforms.ToTensor()
+            #file = file_path
+            #img = Image.open(file)
+            #st.subheader("Imagem1")
+            #st.image(img)
             #img_inverted = invert_color(img)
             
             #img = img_inverted
@@ -196,8 +123,8 @@ def png_export():
             #st.write("Imagem na forma de tensor")
             #st.write(file_tensor)
             #st.write(modelo.predict(file_tensor))
-            img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
-            st.image(img_28_28)
+            #img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
+            #st.image(img_28_28)
             img_array = np.array(img_28_28)
  
             img_784 = img_array.reshape(-1,28*28)
@@ -210,6 +137,13 @@ def png_export():
             #pred = modelo_keras.predict(img_normalizado)
             #st.write(pred)
             #st.title(pred.argmax())
+            
+        #if canvas_result.json_data is not None:
+        #    objects = pd.json_normalize(canvas_result.json_data["objects"])
+        #    for col in objects.select_dtypes(include=["object"]).columns:
+        #        objects[col] = objects[col].astype("str")
+        #    st.dataframe(objects)
+
             
            
     
