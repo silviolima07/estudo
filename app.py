@@ -81,8 +81,8 @@ def full_app():
             update_streamlit=realtime_update,
             height=150,
             drawing_mode=drawing_mode,
-            point_display_radius= 0 #point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar= True # st.sidebar.checkbox("Display toolbar", True),
+            point_display_radius= 0, #point_display_radius if drawing_mode == 'point' else 0,
+            display_toolbar= True, # st.sidebar.checkbox("Display toolbar", True),
             key="full_app",
         )
 
