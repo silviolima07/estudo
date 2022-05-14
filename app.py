@@ -33,36 +33,17 @@ def main():
 
 def about():
     
-    st.markdown(
-        """
-    What you can do with Drawable Canvas:
-
-    * Draw freely, lines, circles and boxes on the canvas, with options on stroke & fill
-    * Rotate, skew, scale, move any object of the canvas on demand
-    * Select a background color or image to draw on
-    * Get image data and every drawn object properties back to Streamlit !
-    * Choose to fetch back data in realtime or on demand with a button
-    * Undo, Redo or Drop canvas
-    * Save canvas data as JSON to reuse for another session
-    """
-    )
+    st.markdown("Teste")
 
 
 def full_app():
-    st.sidebar.header("Configuration")
-    st.markdown(
-        """
-    Draw on the canvas, get the drawings back to Streamlit!
-    * Configure canvas in the sidebar
-    * In transform mode, double-click an object to remove it
-    * In polygon mode, left-click to add a point, right-click to close the polygon, double-click to remove the latest point
-    """
-    )
+    st.sidebar.header("Neural Networks")
+    
 
     with st.echo("below"):
         drawing_mode = st.sidebar.selectbox(
             "Drawing tool:",
-            ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+            ("numbers from 0 to 9"),
         )
         stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
         if drawing_mode == 'point':
@@ -106,14 +87,9 @@ def full_app():
         st.image(img_28_28)
 
 
-
+"""
 def png_export():
-    st.markdown(
-        """
-    Realtime update is disabled for this demo. 
-    Press the 'Download' button at the bottom of canvas to update exported image.
-    """
-    )
+    
     try:
         Path("tmp/").mkdir()
     except FileExistsError:
@@ -185,7 +161,7 @@ def png_export():
         )
         st.markdown(dl_link, unsafe_allow_html=True)
 
-
+"""
 
 if __name__ == "__main__":
     st.set_page_config(
