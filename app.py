@@ -67,7 +67,7 @@ def main():
             drawing_mode=   drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
             display_toolbar2= st.sidebar.checkbox("Display toolbar", True),
-            key="draw_app2",
+            #key="draw_app2",
         )
 
         # Do something interesting with the image data and paths
