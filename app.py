@@ -31,7 +31,6 @@ def main():
 
 def full_app():
 
-    with st.echo("below"):
         drawing_mode = "freedraw" #st.sidebar.selectbox(
   
         stroke_width = 10 #st.sidebar.slider("Stroke width: ", 1, 25, 3)
