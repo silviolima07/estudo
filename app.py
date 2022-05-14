@@ -80,6 +80,7 @@ def main():
             #button_id = st.session_state["button_id"]
             #file_path = f"tmp/{button_id}.png"
             
+            
             #im.save(file_path, "PNG")
             #img = Image.open(file_path)
             img_28_28 = im.resize([50,50], Image.Resampling.NEAREST)
