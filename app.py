@@ -53,7 +53,7 @@ if canvas_result.image_data is not None:
     input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
     input_image.save('user_input.png')
     
-    st.write('user input")
+    st.write('user input')
     st.image(input_image)
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
