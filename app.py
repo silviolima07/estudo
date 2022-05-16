@@ -15,9 +15,9 @@ Network = torch.load('model_torch_MNIST_CNN_99_1_streamlit.chk')
 
 st.write('### Draw a digit in 0-9 in the box below')
 # Specify canvas parameters in application
-stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 9)
+stroke_width = 10 # st.sidebar.slider("Stroke width: ", 1, 25, 9)
 
-realtime_update = st.sidebar.checkbox("Update in realtime", True)
+realtime_update = True #st.sidebar.checkbox("Update in realtime", True)
 
 # Create a canvas component
 canvas_result = st_canvas(
@@ -79,7 +79,8 @@ if canvas_result.image_data is not None:
     mask[y:y+h, x:x+w] = ROI
 #     print(mask)
     # Check if centering/masking was successful
-#     plt.imshow(mask, cmap='viridis') 
+#     plt.imshow(mask, cmap='viridis')
+    mask = input_image_gs_np 
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
