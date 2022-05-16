@@ -80,8 +80,6 @@ def full_app():
         #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
         
-        
-        
         st.image(im)
         
         #img_784 = img_28_28.reshape(-1,28*28)
