@@ -67,19 +67,21 @@ if canvas_result.image_data is not None:
     input_image_gs.save('temp_for_cv2.jpg')
     image = cv2.imread('temp_for_cv2.jpg', 0)
     # Start creating a bounding box
+    st.write("image lida shape")
+    st.write(image.shape)
     height, width = image.shape
     x,y,w,h = cv2.boundingRect(image)
-    st.write( x)
-    st.write( y)
-    st.write( w)
-    st.write( h)
+    st.write('x: '+str(x))
+    st.write( 'y: '+str(y)
+    st.write( 'w: '+str(w))
+    st.write( 'h: '+str(w))
 
     # Create new blank image and shift ROI to new coordinates
     ROI = image[y:y+h, x:x+w]
     mask = np.zeros([ROI.shape[0]+10,ROI.shape[1]+10])
     width, height = mask.shape
     st.write(ROI.shape)
-#     print(mask.shape)
+    st.write(mask.shape)
     x = width//2 - ROI.shape[0]//2 
     y = height//2 - ROI.shape[1]//2 
 #     print(x,y)
