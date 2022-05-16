@@ -71,10 +71,10 @@ if canvas_result.image_data is not None:
     st.write(image.shape)
     height, width = image.shape
     x,y,w,h = cv2.boundingRect(image)
-    st.write('x: '+str(x))
-    st.write( 'y: '+str(y)
-    st.write( 'w: '+str(w))
-    st.write( 'h: '+str(w))
+    st.write(x)
+    st.write(y)
+    st.write( w)
+    st.write( h)
 
     # Create new blank image and shift ROI to new coordinates
     ROI = image[y:y+h, x:x+w]
