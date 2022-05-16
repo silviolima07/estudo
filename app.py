@@ -16,7 +16,6 @@ from svgpathtools import parse_path
 
 from scipy.misc import imread,imresize
 
-import cv2
 
 import keras.models
 from keras.models import model_from_json
@@ -104,47 +103,19 @@ def full_app():
             input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
             input_image.save('user_input.png')
             
-            # Convert it to grayscale
-            input_image_gs = input_image.convert('L')
-            input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
-            all_zeros = not np.any(input_image_gs_np)
-            if not all_zeros:
-                # st.write('### Image as a grayscale Numpy array')
-                # st.write(input_image_gs_np)
-         
-                # Create a temporary image for opencv to read it
-                input_image_gs.save('temp_for_cv2.jpg')
-                image = cv2.imread('temp_for_cv2.jpg', 0)
-                # Start creating a bounding box
-                height, width = image.shape
-                x,y,w,h = cv2.boundingRect(image)
- 
- 
-                # Create new blank image and shift ROI to new coordinates
-                ROI = image[y:y+h, x:x+w]
-                mask = np.zeros([ROI.shape[0]+10,ROI.shape[1]+10])
-                width, height = mask.shape
-    #     print(ROI.shape)
-    #     print(mask.shape)
-                x = width//2 - ROI.shape[0]//2
-                y = height//2 - ROI.shape[1]//2
-    #           print(x,y)
-                mask[y:y+h, x:x+w] = ROI
-    #     print(mask)
-        # Check if centering/masking was successful
-    #     plt.imshow(mask, cmap='viridis') 
-                output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
+            
+                
         # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
         # compressed_output_image = output_image.resize((22,22))
         # Therefore, we use the following:
-                compressed_output_image = output_image.resize((22,22), Image.BILINEAR) # PIL.Image.NEAREST or PIL.Image.BILINEAR also performs good
+            compressed_output_image = input_image.resize((22,22), Image.BILINEAR) # PIL.Image.NEAREST or PIL.Image.BILINEAR also performs good
  
-                tensor_image = np.array(compressed_output_image.getdata())/255.
-                tensor_image = tensor_image.reshape(22,22)
+            tensor_image = np.array(compressed_output_image.getdata())/255.
+            tensor_image = tensor_image.reshape(22,22)
         # Padding
-                tensor_image = np.pad(tensor_image, (3,3), "constant", constant_values=(0,0))
+            tensor_image = np.pad(tensor_image, (3,3), "constant", constant_values=(0,0))
         # Normalization should be done after padding i guess
-                tensor_image = (tensor_image - 0.1307) / 0.3081
+            tensor_image = (tensor_image - 0.1307) / 0.3081
         # st.write(tensor_image.shape) 
         # Shape of tensor image is (1,28,28)
          
@@ -161,7 +132,7 @@ def full_app():
         # im = Image.fromarray(tensor_image.reshape(28,28), mode='L')
         # im.save("processed_tensor.png", "PNG")
         # So we use matplotlib to save it instead
-                plt.imsave('processed_tensor.png',tensor_image.reshape(28,28), cmap='gray')
+            plt.imsave('processed_tensor.png',tensor_image.reshape(28,28), cmap='gray')
  
         # st.write('### Processed image')
         # st.image('processed_tensor.png')
@@ -169,8 +140,8 @@ def full_app():
  
  
         ### Compute the predictions
-                output_probabilities = modelo.predict(tensor_image.reshape(1,784).astype(np.float32))
-                prediction = np.argmax(output_probabilities)
+            output_probabilities = modelo.predict(tensor_image.reshape(1,784).astype(np.float32))
+            prediction = np.argmax(output_probabilities)
  
          
  
