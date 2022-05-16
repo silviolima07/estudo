@@ -14,7 +14,7 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
-from tensorflow import keras
+#from tensorflow import keras
 
 
 def main():
@@ -106,6 +106,6 @@ if __name__ == "__main__":
     st.title("Drawable Canvas Demo")
     st.sidebar.subheader("Configuration")
     
-    modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    #modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
     main()
