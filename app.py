@@ -14,6 +14,8 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
+from tensorflow import keras
+
 
 def main():
     if "button_id" not in st.session_state:
@@ -64,9 +66,24 @@ def full_app():
         #    for col in objects.select_dtypes(include=["object"]).columns:
         #        objects[col] = objects[col].astype("str")
         #     st.dataframe(objects)
-
-
-
+        
+        img = canvas_result.image_data
+        
+        img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
+        st.image(img_28_28)
+        img_array = np.array(img_28_28)
+        """
+        img_784 = img_array.reshape(-1,28*28)
+        img_784 = img_784.astype('float32')
+        img_normalizado = img_784/255.0
+            
+        
+        st.title("Previsão")
+                 
+        pred = modelo_keras.predict(img_normalizado)
+        
+        st.title(pred.argmax())
+        """
 
 
 
