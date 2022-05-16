@@ -53,48 +53,48 @@ if canvas_result.image_data is not None:
     input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
     input_image.save('user_input.png')
     
-    st.write('user input')
-    st.image(input_image)
+    #st.write('user input')
+    #st.image(input_image)
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
-    st.write('user input in gray scale11')
-    st.image(input_image_gs)
+    #st.write('user input in gray scale11')
+    #st.image(input_image_gs)
     input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
-    st.write('### Image as a grayscale Numpy array reshape 2000x200')
-    st.image(input_image_gs_np)
+    #st.write('### Image as a grayscale Numpy array reshape 2000x200')
+    #st.image(input_image_gs_np)
     
     # Create a temporary image for opencv to read it
     input_image_gs.save('temp_for_cv2.jpg')
     image = cv2.imread('temp_for_cv2.jpg', 0)
     # Start creating a bounding box
-    st.write("image lida shape")
-    st.write(image.shape)
+    #st.write("image lida shape")
+    #st.write(image.shape)
     height, width = image.shape
     x,y,w,h = cv2.boundingRect(image)
-    st.write(x)
-    st.write(y)
-    st.write( w)
-    st.write( h)
+    #st.write(x)
+    #st.write(y)
+    #st.write( w)
+    #st.write( h)
 
     # Create new blank image and shift ROI to new coordinates
     ROI = image[y:y+h, x:x+w]
     mask = np.zeros([ROI.shape[0]+10,ROI.shape[1]+10])
     width, height = mask.shape
-    st.write(ROI.shape)
-    st.write(mask.shape)
+    #st.write(ROI.shape)
+    #st.write(mask.shape)
     x = width//2 - ROI.shape[0]//2 
     y = height//2 - ROI.shape[1]//2 
 #     print(x,y)
     mask[y:y+h, x:x+w] = ROI
 #     print(mask)
     # Check if centering/masking was successful
-    plt.imshow(mask, cmap='viridis')
+    #plt.imshow(mask, cmap='viridis')
     
-    st.write(" mask")
-    st.write(mask)
+    #st.write(" mask")
+    #st.write(mask)
     
-    st.write("input_image_gs_np")
-    st.write(input_image_gs_np)
+    #st.write("input_image_gs_np")
+    #st.write(input_image_gs_np)
      
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
@@ -128,7 +128,7 @@ if canvas_result.image_data is not None:
     im = Image.fromarray(tensor_image.detach().cpu().numpy().reshape(28,28), mode='L')
     im.save("processed_tensor.png", "PNG")
     # So we use matplotlib to save it instead
-    plt.imsave('processed_tensor.png',tensor_image.detach().cpu().numpy().reshape(28,28), cmap='gray')
+    #plt.imsave('processed_tensor.png',tensor_image.detach().cpu().numpy().reshape(28,28), cmap='gray')
 
     # st.write('### Processed image')
     # st.image('processed_tensor.png')
@@ -152,7 +152,7 @@ if canvas_result.image_data is not None:
         output1 = output1.clone().cpu()#.item()
 #     print(certainty)
     st.write('### Prediction') 
-    st.write('### '+str(output))
+    st.title('### '+str(output))
 
     #st.write('## Breakdown of the prediction process:') 
 
@@ -169,8 +169,8 @@ if canvas_result.image_data is not None:
     #st.write('4. Normalize the image to have pixel values between 0 and 1.')
     #st.write('5. Standardize the image using the mean and standard deviation of the MNIST training dataset.')
 
-    st.write('### Processed image')
-    st.image('processed_tensor.png')
+    #st.write('### Processed image')
+    #st.image('processed_tensor.png')
 
 
 
