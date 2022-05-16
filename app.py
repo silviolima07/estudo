@@ -183,5 +183,5 @@ if canvas_result.image_data is not None:
         top3 = str(output1).replace('tensor','').replace('([','').replace('])','')
         st.title(top3)
         st.markdown('# Probabilidades')
-        probs = str(np.round(certainty1*100,2)).replace('tensor','')        
+        probs = str(np.round(certainty1,2)*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
