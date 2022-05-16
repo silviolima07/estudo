@@ -73,13 +73,16 @@ def full_app():
         
         img_pil = Image.fromarray(img)
         
+        im = Image.fromarray(img_pil.reshape(28,28))
+        
         #img_28_28 = img_pil.resize((28,28), Image.LANCZOS)
         #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
-        img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
+        #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
         
         
-        st.image(img_28_28)
+        
+        st.image(im)
         
         #img_784 = img_28_28.reshape(-1,28*28)
         #img_784 = img_784.astype('float32')
