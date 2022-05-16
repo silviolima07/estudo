@@ -83,13 +83,15 @@ def full_app():
             
             #img_28_28 = img.resize((28,28), Image.NEAREST)
             
-            img = cv.resize(img , (28,28))
+            #img = cv.resize(img , (28,28))
+            resized = cv2.resize(input_numpy_array, (28,28)) 
+            features = resized.reshape(1,-1)
             
             st.image(img)
             #img_array = np.array(input_numpy_array.resize((28, 28), Image.LANCZOS))
      
-            #img_teste = img_array.reshape(1, 28, 28, 1).astype('float32')
-            #img_teste = img_teste / 255
+            img_teste = features.astype('float32')
+            img_teste = img_teste / 255
         
             # Get the RGBA PIL image
             #input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
