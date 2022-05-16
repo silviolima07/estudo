@@ -14,8 +14,8 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
-from scipy.misc import imresize
-import imageio
+from scipy.misc import imread,imresize
+
 
 
 #from tensorflow import keras
@@ -85,7 +85,7 @@ def full_app():
             convertImage(imgData)
             
             # Grava a imagem na memória
-            x = imageio.imread('output.png', mode='L')
+            x = imread('output.png', mode='L')
             # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
             x = np.invert(x)
             # Redimensiona a imagem para o tamanho que será alimentado no modelo
