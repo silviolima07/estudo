@@ -72,9 +72,10 @@ def full_app():
         st.write(type(img))
         
         img_pil = Image.fromarray(img)
-        size_new = (28,28)
-        img_28_28 = img_pil.resize(size_new, Image.LANCZOS)
+        
+        img_28_28 = img_pil.resize((28,28), Image.LANCZOS)
         #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
+        
         
         
         st.image(img_28_28)
