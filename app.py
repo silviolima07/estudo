@@ -76,7 +76,7 @@ def full_app():
      
      
         # Get the RGBA PIL image
-        input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
+        input_image = Image.fromarray(input_numpy_array.astype('uint8').str, 'RGBA')
      
         st.write("Input Image")
         st.image(input_image)
