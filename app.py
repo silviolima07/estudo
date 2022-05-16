@@ -87,19 +87,16 @@ def full_app():
             # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
             x = np.invert(x)
             # Redimensiona a imagem para o tamanho que será alimentado no modelo
-	        x = imresize(x,(28,28))
+            x = imresize(x,(28,28))
             # Converte para um tensor 4D e alimenta nosso modelo
-	        x = x.reshape(1,28,28,1)
-		    # Faz a previsão
-		    #out = model.predict(x)
+            x = x.reshape(1,28,28,1)
+            # Faz a previsão
+            #out = model.predict(x)
 		    #print(np.argmax(out, axis=1))
 		    # Converte a resposta em uma string
 		    #response = np.array_str(np.argmax(out,axis=1))
-            
             st.title("Previsão")
-                
             pred = modelo_keras.predict(x)
-        
             st.title(pred.argmax())
             
             
