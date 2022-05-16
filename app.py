@@ -100,7 +100,7 @@ if canvas_result.image_data is not None:
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
     # Therefore, we use the following:
-    compressed_output_image = output_image.resize((28,28), Image.BILINEAR) # PIL.Image.NEAREST or PIL.Image.BILINEAR also performs good
+    compressed_output_image = output_image.resize((22,22), Image.BILINEAR) # PIL.Image.NEAREST or PIL.Image.BILINEAR also performs good
 
     convert_tensor = torchvision.transforms.ToTensor()
     tensor_image = convert_tensor(compressed_output_image)
@@ -110,7 +110,7 @@ if canvas_result.image_data is not None:
     # Padding
     tensor_image = torch.nn.functional.pad(tensor_image, (3,3,3,3), "constant", 0)
     # Normalization shoudl be done after padding i guess
-    convert_tensor = torchvision.transforms.Normalize((0.1307), (0.3081)) # Mean and std of MNIST
+    #convert_tensor = torchvision.transforms.Normalize((0.1307), (0.3081)) # Mean and std of MNIST
     tensor_image = convert_tensor(tensor_image)
     # st.write(tensor_image.shape) 
     # Shape of tensor image is (1,28,28)
