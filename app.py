@@ -81,26 +81,28 @@ def full_app():
         
             st.image(img)
             
-            input_image = image.read(img)            
+            st.write(type(img))
+            
+            #input_image = image.read(img)            
             # Encode em formato que possa ser alimentado no modelo 
-            input_image.save("output.png")
+            #input_image.save("output.png")
             
             # Grava a imagem na memória
-            x = imread('output.png', mode='L')
+            #x = imread('output.png', mode='L')
             # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
-            x = np.invert(x)
+            #x = np.invert(x)
             # Redimensiona a imagem para o tamanho que será alimentado no modelo
-            x = imresize(x,(28,28))
+            #x = imresize(x,(28,28))
             # Converte para um tensor 4D e alimenta nosso modelo
-            x = x.reshape(1,28,28,1)
+            #x = x.reshape(1,28,28,1)
             # Faz a previsão
             #out = model.predict(x)
 		    #print(np.argmax(out, axis=1))
 		    # Converte a resposta em uma string
 		    #response = np.array_str(np.argmax(out,axis=1))
-            st.title("Previsão")
-            pred = modelo_keras.predict(x)
-            st.title(pred.argmax())
+            #st.title("Previsão")
+            #pred = modelo_keras.predict(x)
+            #st.title(pred.argmax())
             
             
             
