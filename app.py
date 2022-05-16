@@ -84,9 +84,9 @@ def full_app():
         
         st.title("Previsão")
                  
-        pred = modelo_keras.predict(img_normalizado)
+        #pred = modelo_keras.predict(img_normalizado)
         
-        st.title(pred.argmax())
+        #st.title(pred.argmax())
         
 
 
