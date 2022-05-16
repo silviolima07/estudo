@@ -151,8 +151,10 @@ if canvas_result.image_data is not None:
         certainty1 = certainty1.clone().cpu()#.item()
         output1 = output1.clone().cpu()#.item()
 #     print(certainty)
-    st.write('### Prediction') 
-    st.title('### '+str(output))
+    if st.button("Prever"):
+     
+        st.title('Previsão') 
+        st.subheader(output))
 
     #st.write('## Breakdown of the prediction process:') 
 
@@ -174,11 +176,11 @@ if canvas_result.image_data is not None:
 
 
 
-    st.write('### Previsão') 
-    st.subheader(str(output))
-    st.write('### Probabilidade da maior classe')    
-    st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
-    st.write('### Top 3 classes')
-    st.write(str(output1))
-    st.write('### Probabilidades')    
-    st.subheader(str(certainty1*100))
+        st.markdown('### Previsão') 
+        st.subheader(str(output))
+        st.markdown('### Probabilidade da maior classe')    
+        st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
+        st.markdown('## Top 3 classes')
+        st.write(str(output1))
+        st.markdown('### Probabilidades')    
+        st.subheader(str(np.round(certainty1*100,2)))
