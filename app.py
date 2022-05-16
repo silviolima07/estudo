@@ -82,7 +82,7 @@ def full_app():
         img_normalizado = img_784/255.0
             
         
-        st.title("Previsão")
+        #st.title("Previsão")
                  
         #pred = modelo_keras.predict(img_normalizado)
         
