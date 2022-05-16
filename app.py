@@ -17,8 +17,8 @@ from svgpathtools import parse_path
 from scipy.misc import imread,imresize
 
 
-#import keras.models
-#from keras.models import model_from_json
+import keras.models
+from keras.models import model_from_json
 
 def carregar_modelo(): 
 	json_file = open('./model.json','r')
