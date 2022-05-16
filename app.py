@@ -76,10 +76,8 @@ def full_app():
         
         
         st.image(img_28_28)
-        """
-        img_array = np.array(img_28_28)
         
-        img_784 = img_array.reshape(-1,28*28)
+        img_784 = img_pil.reshape(-1,28*28)
         img_784 = img_784.astype('float32')
         img_normalizado = img_784/255.0
             
@@ -89,7 +87,7 @@ def full_app():
         pred = modelo_keras.predict(img_normalizado)
         
         st.title(pred.argmax())
-        """
+        
 
 
 
