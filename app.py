@@ -82,7 +82,7 @@ def full_app():
             st.image(img)
             
             # Encode em formato que possa ser alimentado no modelo 
-            convertImage(imgData)
+            convertImage(img)
             
             # Grava a imagem na memória
             x = imread('output.png', mode='L')
