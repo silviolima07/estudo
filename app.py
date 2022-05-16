@@ -59,8 +59,8 @@ def full_app():
         )
 
         # Do something interesting with the image data and paths
-        if canvas_result.image_data is not None:
-            st.image(canvas_result.image_data)
+        #if canvas_result.image_data is not None:
+            #st.image(canvas_result.image_data)
         #if canvas_result.json_data is not None:
         #    objects = pd.json_normalize(canvas_result.json_data["objects"])
         #    for col in objects.select_dtypes(include=["object"]).columns:
@@ -71,7 +71,7 @@ def full_app():
         if st.button("Prever") and canvas_result.image_data is not None:
             img = canvas_result.image_data
         
-            st.write(type(img))
+            #st.write(type(img))
         
             # Get the numpy array (4-channel RGBA 100,100,4)
             input_numpy_array = np.array(img)
@@ -85,8 +85,8 @@ def full_app():
             input_image.save('user_input.png')
      
      
-            st.write("Input Image")
-            st.image(input_image)
+            #st.write("Input Image")
+            #st.image(input_image)
         
         
             img_28_28 = input_image.resize((28,28), Image.LANCZOS)
@@ -96,16 +96,16 @@ def full_app():
         
             st.image(img_28_28)
         
-        #img_784 = img_28_28.reshape(-1,28*28)
-        #img_784 = img_784.astype('float32')
-        #img_normalizado = img_784/255.0
+            img_784 = img_28_28.reshape(-1,28*28)
+            img_784 = img_784.astype('float32')
+            img_normalizado = img_784/255.0
             
         
-        #st.title("Previsão")
+            st.title("Previsão")
                  
-        #pred = modelo_keras.predict(img_784)
+            pred = modelo_keras.predict(img_normalizado)
         
-        #st.title(pred.argmax())
+            st.title(pred.argmax())
         
 
 
