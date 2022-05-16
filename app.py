@@ -14,10 +14,14 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
-import cv
+from scipy.misc import imsave, imread, imresize
 
 #from tensorflow import keras
 
+def convertImage(imgData1):
+	imgstr = re.search(b'base64,(.*)',imgData1).group(1)
+	with open('output.png','wb') as output:
+		output.write(base64.b64decode(imgstr))
 
 def main():
     if "button_id" not in st.session_state:
@@ -74,24 +78,54 @@ def full_app():
             img = canvas_result.image_data
         
             st.image(img)
+            
+            # Encode em formato que possa ser alimentado no modelo 
+	        convertImage(imgData)
+            
+            # Grava a imagem na memória
+	        x = imread('output.png', mode='L')
+	
+	        # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
+	        x = np.invert(x)
+	
+	        # Redimensiona a imagem para o tamanho que será alimentado no modelo
+	        x = imresize(x,(28,28))
+
+	        # Converte para um tensor 4D e alimenta nosso modelo
+	        x = x.reshape(1,28,28,1)
+
+		    # Faz a previsão
+		    #out = model.predict(x)
+		    #print(np.argmax(out, axis=1))
+		    # Converte a resposta em uma string
+		    #response = np.array_str(np.argmax(out,axis=1))
+            
+            st.title("Previsão")
+                
+            pred = modelo_keras.predict(x)
+        
+            st.title(pred.argmax())
+            
+            
+            
         
             # Get the numpy array (4-channel RGBA 100,100,4)
-            input_numpy_array = np.array(img)
+            #input_numpy_array = np.array(img)
         
             # Get the numpy array (4-channel RGBA 100,100,4)
-            input_numpy_array = np.array(canvas_result.image_data)
+            #input_numpy_array = np.array(canvas_result.image_data)
             
             #img_28_28 = img.resize((28,28), Image.NEAREST)
             
             #img = cv.resize(img , (28,28))
-            resized = cv2.resize(input_numpy_array, (28,28)) 
-            features = resized.reshape(1,-1)
+            #resized = cv2.resize(input_numpy_array, (28,28)) 
+            #features = resized.reshape(1,-1)
             
-            st.image(img)
+            #st.image(img)
             #img_array = np.array(input_numpy_array.resize((28, 28), Image.LANCZOS))
      
-            img_teste = features.astype('float32')
-            img_teste = img_teste / 255
+            #img_teste = features.astype('float32')
+            #img_teste = img_teste / 255
         
             # Get the RGBA PIL image
             #input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
