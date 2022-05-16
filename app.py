@@ -83,17 +83,13 @@ def full_app():
             convertImage(imgData)
             
             # Grava a imagem na memória
-	        x = imread('output.png', mode='L')
-	
-	        # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
-	        x = np.invert(x)
-	
-	        # Redimensiona a imagem para o tamanho que será alimentado no modelo
+            x = imread('output.png', mode='L')
+            # Calcula uma inversão bit-wise onde preto torna-se branco e vice-versa
+            x = np.invert(x)
+            # Redimensiona a imagem para o tamanho que será alimentado no modelo
 	        x = imresize(x,(28,28))
-
-	        # Converte para um tensor 4D e alimenta nosso modelo
+            # Converte para um tensor 4D e alimenta nosso modelo
 	        x = x.reshape(1,28,28,1)
-
 		    # Faz a previsão
 		    #out = model.predict(x)
 		    #print(np.argmax(out, axis=1))
