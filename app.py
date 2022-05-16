@@ -105,8 +105,8 @@ def full_app():
 		    # Converte a resposta em uma string
 		    #response = np.array_str(np.argmax(out,axis=1))
             st.title("Previsão")
-            pred = modelo_keras.predict(x)
-            st.title(pred.argmax())
+            #pred = modelo_keras.predict(x)
+            #st.title(pred.argmax())
             
             
             
