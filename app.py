@@ -102,12 +102,12 @@ def full_app():
             st.write("Input Image resized to 22x22")
             st.image(image2)
         
-            #img_784 = img_28_28.reshape(-1,28*28)
-            #img_784 = img_28_28.astype('float32')
+            img_784 = img_28_28.reshape(-1,28*28)
+            img_784 = img_28_28.astype('float32')
             
             #st.write(img_784)
             
-            img_normalizado = img_28_28/255.0
+            img_normalizado = img_784/255.0
             
         
             st.title("Previsão")
