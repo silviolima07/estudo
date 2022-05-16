@@ -56,8 +56,8 @@ if canvas_result.image_data is not None:
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
     input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
-    # st.write('### Image as a grayscale Numpy array')
-    # st.write(input_image_gs_np)
+    st.write('### Image as a grayscale Numpy array')
+    st.image(input_image_gs_np)
     
     # Create a temporary image for opencv to read it
     input_image_gs.save('temp_for_cv2.jpg')
@@ -79,8 +79,8 @@ if canvas_result.image_data is not None:
     mask[y:y+h, x:x+w] = ROI
 #     print(mask)
     # Check if centering/masking was successful
-#     plt.imshow(mask, cmap='viridis')
-    mask = input_image_gs_np 
+    plt.imshow(mask, cmap='viridis')
+    #mask = input_image_gs_np 
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
