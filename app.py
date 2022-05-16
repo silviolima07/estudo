@@ -89,7 +89,7 @@ def full_app():
             #st.image(input_image)
         
         
-            img_28_28 = input_image.resize((28,28), Image.LANCZOS)
+            img_28_28 = input_image.resize((28,28), Image.NEAREST)
             #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
             #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
@@ -97,13 +97,15 @@ def full_app():
             st.image(img_28_28)
             
             
+            img_teste = img_28_28.reshape(1, 28, 28, 1).astype('float32')
+            
             #image2 = input_image.resize((22,22), Image.LANCZOS) 
             
             #st.write("Input Image resized to 22x22")
             #st.image(image2)
         
-            img_teste = img_28_28.resize(784, 784)
-            img_teste = img_teste.astype('float32')
+            #img_teste = img_28_28.resize(784, 784)
+            #img_teste = img_teste.astype('float32')
             
             #st.write(img_784)
             
