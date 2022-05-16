@@ -68,7 +68,7 @@ def full_app():
         #     st.dataframe(objects)
         
         
-        if st.button("Prever"):
+        if st.button("Prever") and canvas_result.image_data is not None:
             img = canvas_result.image_data
         
             st.write(type(img))
@@ -88,16 +88,13 @@ def full_app():
             st.write("Input Image")
             st.image(input_image)
         
-        #img_pil = Image.fromarray(img)
         
-        #im = Image.fromarray(img_pil.reshape(28,28))
-        
-        #img_28_28 = img_pil.resize((28,28), Image.LANCZOS)
+            img_28_28 = img_pil.resize((28,28), Image.LANCZOS)
         #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
         #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
         
-        #st.image(im)
+            st.image(img_28_28)
         
         #img_784 = img_28_28.reshape(-1,28*28)
         #img_784 = img_784.astype('float32')
