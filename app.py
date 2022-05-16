@@ -154,7 +154,7 @@ if canvas_result.image_data is not None:
     if st.button("Prever"):
      
         st.title('Previsão') 
-        st.subheader(output))
+        st.write(str(output))
 
     #st.write('## Breakdown of the prediction process:') 
 
