@@ -69,11 +69,11 @@ def full_app():
         
         img = canvas_result.image_data
         
-        #st.write(type(img))
+        st.write(type(img))
         
         #st.image(img)
         
-        img_pil = Image.fromarray(img)
+        #img_pil = Image.fromarray(img)
         
         #im = Image.fromarray(img_pil.reshape(28,28))
         
