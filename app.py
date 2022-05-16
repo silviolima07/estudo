@@ -71,19 +71,22 @@ def full_app():
         if st.button("Prever") and canvas_result.image_data is not None:
             img = canvas_result.image_data
         
-            #st.write(type(img))
+            st.image(img)
         
             # Get the numpy array (4-channel RGBA 100,100,4)
             input_numpy_array = np.array(img)
         
             # Get the numpy array (4-channel RGBA 100,100,4)
             input_numpy_array = np.array(canvas_result.image_data)
+            
+            #img_28_28 = img.resize((28,28), Image.NEAREST)
+            img_array = np.array(input_numpy_array.resize((28, 28), Image.LANCZOS))
      
-            img_teste = input_numpy_array.reshape(1, 28, 28, 1).astype('float32')
+            img_teste = img_array.reshape(1, 28, 28, 1).astype('float32')
             img_teste = img_teste / 255
         
             # Get the RGBA PIL image
-            input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
+            #input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
             
      
      
@@ -118,7 +121,7 @@ def full_app():
         
             st.title("Previsão")
                  
-            pred = modelo_keras.predict(input_image)
+            pred = modelo_keras.predict(img_teste)
         
             st.title(pred.argmax())
         
