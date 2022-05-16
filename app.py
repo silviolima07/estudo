@@ -14,7 +14,7 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
-from scipy.misc import imsave, imread, imresize
+from scipy.misc import imread, imresize
 
 #from tensorflow import keras
 
