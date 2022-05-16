@@ -52,18 +52,18 @@ def full_app():
             height=450,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar= True, #st.sidebar.checkbox("Display toolbar", False),
+            display_toolbar= TrueVi, #st.sidebar.checkbox("Display toolbar", False),
             key="full_app",
         )
 
         # Do something interesting with the image data and paths
-        if canvas_result.image_data is not None:
-            st.image(canvas_result.image_data)
-        if canvas_result.json_data is not None:
-            objects = pd.json_normalize(canvas_result.json_data["objects"])
-            for col in objects.select_dtypes(include=["object"]).columns:
-                objects[col] = objects[col].astype("str")
-            st.dataframe(objects)
+        #if canvas_result.image_data is not None:
+        #    st.image(canvas_result.image_data)
+        #if canvas_result.json_data is not None:
+        #    objects = pd.json_normalize(canvas_result.json_data["objects"])
+        #    for col in objects.select_dtypes(include=["object"]).columns:
+        #        objects[col] = objects[col].astype("str")
+        #     st.dataframe(objects)
 
 
 
