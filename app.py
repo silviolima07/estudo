@@ -174,11 +174,11 @@ if canvas_result.image_data is not None:
 
 
 
-    st.write('### Prediction') 
+    st.write('### Previsão') 
     st.subheader(str(output))
-    st.write('### Certainty')    
+    st.write('### Probabilidade da maior classe')    
     st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
-    st.write('### Top 3 candidates')
+    st.write('### Top 3 classes')
     st.write(str(output1))
-    st.write('### Certainties')    
+    st.write('### Probabilidades')    
     st.subheader(str(certainty1*100))
