@@ -97,9 +97,9 @@ def full_app():
             st.image(img_28_28)
         
             #img_784 = img_28_28.reshape(-1,28*28)
-            img_784 = img_28_28.astype('float32')
+            #img_784 = img_28_28.astype('float32')
             
-            st.write(img_784)
+            #st.write(img_784)
             
             #img_normalizado = img_784/255.0
             
