@@ -98,14 +98,17 @@ def full_app():
         
             #img_784 = img_28_28.reshape(-1,28*28)
             img_784 = img_28_28.astype('float32')
-            img_normalizado = img_784/255.0
+            
+            st.write(img_784)
+            
+            #img_normalizado = img_784/255.0
             
         
-            st.title("Previsão")
+            #st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_normalizado)
+            #pred = modelo_keras.predict(img_normalizado)
         
-            st.title(pred.argmax())
+            #st.title(pred.argmax())
         
 
 
