@@ -17,8 +17,8 @@ from svgpathtools import parse_path
 from scipy.misc import imread,imresize
 
 
-import keras.models
-from keras.models import model_from_json
+#import keras.models
+#from keras.models import model_from_json
 
 def carregar_modelo(): 
 	json_file = open('./model.json','r')
@@ -95,6 +95,7 @@ def full_app():
         
             st.image(img)
             
+            """
             # Get the numpy array (4-channel RGBA 100,100,4)
             input_numpy_array = np.array(canvas_result.image_data)
      
@@ -232,7 +233,7 @@ def full_app():
         
             #st.title(pred.argmax())
         
-
+            """
 
 
 
