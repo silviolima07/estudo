@@ -56,8 +56,8 @@ if canvas_result.image_data is not None:
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
     input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
-    st.write('### Image as a grayscale Numpy array')
-    st.image(input_image_gs_np)
+    #st.write('### Image as a grayscale Numpy array')
+    #st.image(input_image_gs_np)
     
     # Create a temporary image for opencv to read it
     input_image_gs.save('temp_for_cv2.jpg')
@@ -81,6 +81,8 @@ if canvas_result.image_data is not None:
     # Check if centering/masking was successful
     plt.imshow(mask, cmap='viridis')
     #mask = input_image_gs_np 
+    st.write("Tipo de mask")
+    st.write(type(mask))
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
@@ -139,20 +141,20 @@ if canvas_result.image_data is not None:
     st.write('### Prediction') 
     st.write('### '+str(output))
 
-    st.write('## Breakdown of the prediction process:') 
+    #st.write('## Breakdown of the prediction process:') 
 
-    st.write('### Image being used as input')
-    st.image(canvas_result.image_data)
+    #st.write('### Image being used as input')
+    #st.image(canvas_result.image_data)
 
-    st.write('### Image as a grayscale Numpy array')
-    st.write(input_image_gs_np)
+    #st.write('### Image as a grayscale Numpy array')
+    #st.write(input_image_gs_np)
 
-    st.write('### Processing steps:')
-    st.write('1. Find the bounding box of the digit blob and use that.')
-    st.write('2. Convert it to size 22x22.')
-    st.write('3. Pad the image with 3 pixels on all the sides to get a 28x28 image.')
-    st.write('4. Normalize the image to have pixel values between 0 and 1.')
-    st.write('5. Standardize the image using the mean and standard deviation of the MNIST training dataset.')
+    #st.write('### Processing steps:')
+    #st.write('1. Find the bounding box of the digit blob and use that.')
+    #st.write('2. Convert it to size 22x22.')
+    #st.write('3. Pad the image with 3 pixels on all the sides to get a 28x28 image.')
+    #st.write('4. Normalize the image to have pixel values between 0 and 1.')
+    #st.write('5. Standardize the image using the mean and standard deviation of the MNIST training dataset.')
 
     st.write('### Processed image')
     st.image('processed_tensor.png')
