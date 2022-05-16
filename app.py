@@ -18,7 +18,7 @@ from scipy.misc import imread,imresize
 
 
 
-from tensorflow import keras
+import keras
 
 def convertImage(imgData1):
 	imgstr = re.search(b'base64,(.*)',imgData1).group(1)
