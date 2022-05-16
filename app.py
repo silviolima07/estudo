@@ -71,7 +71,7 @@ def full_app():
         
         st.write(type(img))
         
-        img_28_28 = np.resize(img,(28,28))
+        img_28_28 = np.reshape(img, (28,28))
         st.image(img_28_28)
         """
         img_array = np.array(img_28_28)
