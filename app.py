@@ -107,14 +107,14 @@ def full_app():
             
             #st.write(img_784)
             
-            #img_normalizado = img_784/255.0
+            img_normalizado = img_28_28/255.0
             
         
-            #st.title("Previsão")
+            st.title("Previsão")
                  
-            #pred = modelo_keras.predict(img_normalizado)
+            pred = modelo_keras.predict(img_normalizado)
         
-            #st.title(pred.argmax())
+            st.title(pred.argmax())
         
 
 
