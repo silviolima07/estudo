@@ -164,7 +164,7 @@ if canvas_result.image_data is not None:
     st.write('### Prediction') 
     st.subheader(str(output))
     st.write('### Certainty')    
-    st.write(str(np.round(certainty1[0].item()*100,2) +'%')
+    st.write(str(np.round(certainty1[0].item()*100,2) +'%'))
     st.write('### Top 3 candidates')
     st.write(str(output1))
     st.write('### Certainties')    
