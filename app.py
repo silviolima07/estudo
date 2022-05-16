@@ -18,7 +18,7 @@ from scipy.misc import imread,imresize
 
 
 
-#from tensorflow import keras
+from tensorflow import keras
 
 def convertImage(imgData1):
 	imgstr = re.search(b'base64,(.*)',imgData1).group(1)
@@ -182,6 +182,6 @@ if __name__ == "__main__":
     st.title("Drawable Canvas Demo")
     st.sidebar.subheader("Configuration")
     
-    #modelo_keras = keras.models.load_model('./modelo_keras.h5')
+    modelo_keras = keras.models.load_model('./modelo_keras.h5')
     
     main()
