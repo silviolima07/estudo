@@ -69,10 +69,12 @@ def full_app():
         
         img = canvas_result.image_data
         
+        st.write(type(img))
+        """
         img_28_28 = img.resize([28,28], Image.Resampling.NEAREST)
         st.image(img_28_28)
         img_array = np.array(img_28_28)
-        """
+        
         img_784 = img_array.reshape(-1,28*28)
         img_784 = img_784.astype('float32')
         img_normalizado = img_784/255.0
