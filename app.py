@@ -68,7 +68,7 @@ def full_app():
         #     st.dataframe(objects)
         
         
-        if st.button("Prever")and data is not None:
+        if st.button("Prever"):
             img = canvas_result.image_data
         
             st.write(type(img))
