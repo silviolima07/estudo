@@ -174,13 +174,14 @@ if canvas_result.image_data is not None:
 
 
 
-        st.markdown('# Previsão') 
-        st.write(str(output))
+        st.markdown('# Previsão')
+        pred = str(output)        
+        st.subheader(pred)
         st.markdown('# Probabilidade da maior classe')    
         st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
         st.markdown('# Top 3 classes')
-        top3 = str(output1)
-        st.write(top3)
+        top3 = str(output1).replace('tensor','')
         st.title(top3)
-        st.markdown('# Probabilidades')    
-        st.subheader(str(np.round(certainty1*100,2)))
+        st.markdown('# Probabilidades')
+        probs = str(np.round(certainty1*100,2)).replace('tensor','')        
+        st.subheader(probs)
