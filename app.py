@@ -88,13 +88,13 @@ if canvas_result.image_data is not None:
     # Check if centering/masking was successful
     plt.imshow(mask, cmap='viridis')
     
-    st.write("Tipo de mask")
-    st.write(type(mask))
+    st.write(" mask")
+    st.write(mask)
     
-    st.write("Tipo de input_image_gs_np")
-    st.write(type(input_image_gs_np))
+    st.write("input_image_gs_np")
+    st.write(input_image_gs_np)
      
-    output_image = Image.fromarray(mask.astype(np.uint8)) # mask has values in [0-255] as expected
+    output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
     # Therefore, we use the following:
