@@ -67,24 +67,26 @@ def full_app():
         #        objects[col] = objects[col].astype("str")
         #     st.dataframe(objects)
         
-        img = canvas_result.image_data
         
-        st.write(type(img))
+        if st.button("Prever")and data is not None:
+            img = canvas_result.image_data
         
-        # Get the numpy array (4-channel RGBA 100,100,4)
-        input_numpy_array = np.array(img)
+            st.write(type(img))
         
-        # Get the numpy array (4-channel RGBA 100,100,4)
-        input_numpy_array = np.array(canvas_result.image_data)
+            # Get the numpy array (4-channel RGBA 100,100,4)
+            input_numpy_array = np.array(img)
+        
+            # Get the numpy array (4-channel RGBA 100,100,4)
+            input_numpy_array = np.array(canvas_result.image_data)
+     
+        
+            # Get the RGBA PIL image
+            input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
+            input_image.save('user_input.png')
      
      
-        # Get the RGBA PIL image
-        input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
-        input_image.save('user_input.png')
-     
-     
-        st.write("Input Image")
-        st.image(input_image)
+            st.write("Input Image")
+            st.image(input_image)
         
         #img_pil = Image.fromarray(img)
         
