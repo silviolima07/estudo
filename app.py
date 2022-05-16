@@ -53,11 +53,15 @@ if canvas_result.image_data is not None:
     input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
     input_image.save('user_input.png')
     
+    st.write('user input")
+    st.image(input_image)
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
+    st.write('user input in gray scale")
+    st.image(input_image_gs)
     input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
-    #st.write('### Image as a grayscale Numpy array')
-    #st.image(input_image_gs_np)
+    st.write('### Image as a grayscale Numpy array reshape 2000x200')
+    st.image(input_image_gs_np)
     
     # Create a temporary image for opencv to read it
     input_image_gs.save('temp_for_cv2.jpg')
@@ -65,13 +69,16 @@ if canvas_result.image_data is not None:
     # Start creating a bounding box
     height, width = image.shape
     x,y,w,h = cv2.boundingRect(image)
-
+    st.write( x)
+    st.write( y)
+    st.write( w)
+    st.write( h)
 
     # Create new blank image and shift ROI to new coordinates
     ROI = image[y:y+h, x:x+w]
     mask = np.zeros([ROI.shape[0]+10,ROI.shape[1]+10])
     width, height = mask.shape
-#     print(ROI.shape)
+    st.write(ROI.shape)
 #     print(mask.shape)
     x = width//2 - ROI.shape[0]//2 
     y = height//2 - ROI.shape[1]//2 
@@ -80,13 +87,13 @@ if canvas_result.image_data is not None:
 #     print(mask)
     # Check if centering/masking was successful
     plt.imshow(mask, cmap='viridis')
-    #mask = input_image_gs_np 
+    
     st.write("Tipo de mask")
     st.write(type(mask))
     
     st.write("Tipo de input_image_gs_np")
     st.write(type(input_image_gs_np))
-    
+    mask = input_image_gs_np 
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
