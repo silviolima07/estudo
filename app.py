@@ -14,6 +14,8 @@ from PIL import Image
 from streamlit_drawable_canvas import st_canvas
 from svgpathtools import parse_path
 
+import cv
+
 #from tensorflow import keras
 
 
@@ -80,10 +82,14 @@ def full_app():
             input_numpy_array = np.array(canvas_result.image_data)
             
             #img_28_28 = img.resize((28,28), Image.NEAREST)
-            img_array = np.array(input_numpy_array.resize((28, 28), Image.LANCZOS))
+            
+            img = cv.resize(img , (28,28))
+            
+            st.image(img)
+            #img_array = np.array(input_numpy_array.resize((28, 28), Image.LANCZOS))
      
-            img_teste = img_array.reshape(1, 28, 28, 1).astype('float32')
-            img_teste = img_teste / 255
+            #img_teste = img_array.reshape(1, 28, 28, 1).astype('float32')
+            #img_teste = img_teste / 255
         
             # Get the RGBA PIL image
             #input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
@@ -119,11 +125,11 @@ def full_app():
             #img_normalizado = img_teste/255.0
             
         
-            st.title("Previsão")
+            #st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_teste)
+            #pred = modelo_keras.predict(img_teste)
         
-            st.title(pred.argmax())
+            #st.title(pred.argmax())
         
 
 
