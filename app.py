@@ -57,7 +57,7 @@ if canvas_result.image_data is not None:
     st.image(input_image)
     # Convert it to grayscale
     input_image_gs = input_image.convert('L')
-    st.write('user input in gray scale")
+    st.write('user input in gray scale11')
     st.image(input_image_gs)
     input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
     st.write('### Image as a grayscale Numpy array reshape 2000x200')
