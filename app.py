@@ -110,7 +110,7 @@ if canvas_result.image_data is not None:
     # Padding
     tensor_image = torch.nn.functional.pad(tensor_image, (3,3,3,3), "constant", 0)
     # Normalization shoudl be done after padding i guess
-    #convert_tensor = torchvision.transforms.Normalize((0.1307), (0.3081)) # Mean and std of MNIST
+    convert_tensor = torchvision.transforms.Normalize((0.1307), (0.3081)) # Mean and std of MNIST
     tensor_image = convert_tensor(tensor_image)
     # st.write(tensor_image.shape) 
     # Shape of tensor image is (1,28,28)
