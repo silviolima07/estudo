@@ -72,7 +72,8 @@ def full_app():
         st.write(type(img))
         
         img_pil = Image.fromarray(img)
-        img_28x28 = np.array(img_pil.resize((28, 28), Image.ANTIALIAS))
+        img_28_28 = np.array(img_pil.resize((28, 28), Image.ANTIALIAS))
+        
         
         st.image(img_28_28)
         """
