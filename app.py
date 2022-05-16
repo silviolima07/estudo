@@ -58,7 +58,7 @@ def full_app():
             key="full_app",
         )
 
-         Do something interesting with the image data and paths
+        # Do something interesting with the image data and paths
         if canvas_result.image_data is not None:
             st.image(canvas_result.image_data)
         #if canvas_result.json_data is not None:
