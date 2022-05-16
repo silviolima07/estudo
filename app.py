@@ -177,7 +177,7 @@ if canvas_result.image_data is not None:
 
 
         st.markdown('### Previsão') 
-        st.subheader(output)
+        st.subheader(str(output))
         st.markdown('### Probabilidade da maior classe')    
         st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
         st.markdown('## Top 3 classes')
