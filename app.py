@@ -52,7 +52,7 @@ def full_app():
             height=450,
             drawing_mode=drawing_mode,
             point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-            display_toolbar= TrueVi, #st.sidebar.checkbox("Display toolbar", False),
+            display_toolbar= True, #st.sidebar.checkbox("Display toolbar", False),
             key="full_app",
         )
 
