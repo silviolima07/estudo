@@ -7,7 +7,7 @@ import torch
 import cv2
 import torchvision
 
-st.write('# MNIST Digit Recognition')
+st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
 
 Network = torch.load('model_torch_MNIST_CNN_99_1_streamlit.chk')
@@ -162,10 +162,10 @@ if canvas_result.image_data is not None:
 
 
     st.write('### Prediction') 
-    st.write(str(output))
+    st.subheader(str(output))
     st.write('### Certainty')    
-    st.write(str(certainty1[0].item()*100) +'%')
+    st.write(str(np.round(certainty1[0].item()*100,2) +'%')
     st.write('### Top 3 candidates')
     st.write(str(output1))
     st.write('### Certainties')    
-    st.write(str(certainty1*100))
+    st.subheader(str(certainty1*100))
