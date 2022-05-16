@@ -93,8 +93,14 @@ def full_app():
             #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
             #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
-        
+            st.write("Input Image resized to 28x28")
             st.image(img_28_28)
+            
+            
+            image2 = input_image.resize((22,22), Image.BILINEAR) 
+            
+            st.write("Input Image resized to 22x22")
+            st.image(image2)
         
             #img_784 = img_28_28.reshape(-1,28*28)
             #img_784 = img_28_28.astype('float32')
