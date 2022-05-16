@@ -71,7 +71,7 @@ def full_app():
         
         st.write(type(img))
         
-        img_pil = Image.fromarray(img)
+        #img_pil = Image.fromarray(img)
         
         #im = Image.fromarray(img_pil.reshape(28,28))
         
