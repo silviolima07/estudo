@@ -79,25 +79,29 @@ def full_app():
             # Get the numpy array (4-channel RGBA 100,100,4)
             input_numpy_array = np.array(canvas_result.image_data)
      
+            img_teste = input_numpy_array.reshape(1, 28, 28, 1).astype('float32')
+            img_teste = img_teste / 255
         
             # Get the RGBA PIL image
-            input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
-            input_image.save('user_input.png')
+            input_image = Image.fromarray(img_teste.astype('uint8'), 'RGBA')
+            
      
      
             #st.write("Input Image")
             #st.image(input_image)
         
         
-            img_28_28 = input_image.resize((28,28), Image.NEAREST)
+            #img_28_28 = input_image.resize((28,28), Image.NEAREST)
             #img_28_28 = np.array(img_pil.resize((28, 28), Image.LANCZOS))
             #img_28_28 = img_pil.resize(size=(28, 28),Image.LANCZOS)
         
-            st.write("Input Image resized to 28x28")
-            st.image(img_28_28)
+            #st.write("Input Image resized to 28x28")
+            #st.image(img_28_28)
             
             
-            img_teste = img_28_28.reshape(1, 28, 28, 1).astype('float32')
+            
+            
+            #img_teste = img_28_28.reshape(1, 28, 28, 1).astype('float32')
             
             #image2 = input_image.resize((22,22), Image.LANCZOS) 
             
@@ -109,12 +113,12 @@ def full_app():
             
             #st.write(img_784)
             
-            img_normalizado = img_teste/255.0
+            #img_normalizado = img_teste/255.0
             
         
             st.title("Previsão")
                  
-            pred = modelo_keras.predict(img_normalizado)
+            pred = modelo_keras.predict(input_image)
         
             st.title(pred.argmax())
         
