@@ -71,7 +71,15 @@ def full_app():
         
         st.write(type(img))
         
-        #st.image(img)
+        # Get the numpy array (4-channel RGBA 100,100,4)
+        input_numpy_array = np.array(img)
+     
+     
+        # Get the RGBA PIL image
+        input_image = Image.fromarray(input_numpy_array.astype('uint8'), 'RGBA')
+     
+        st.write("Input Image")
+        st.image(input_image)
         
         #img_pil = Image.fromarray(img)
         
