@@ -193,7 +193,7 @@ if canvas_result.image_data is not None:
         probs = str(certainty1*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
         lista_classes = [top3]
-        lista_perc = [probs]
+        lista_perc = [str(probs)]
         zipped = list(zip(lista_classes, lista_perc))
         df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
         st.dataframe(df)
@@ -202,6 +202,8 @@ if canvas_result.image_data is not None:
         st.write(classe1)
         st.write(classe2)
         st.write(classe3)
+        st.write(prob1)
+        st.write(prob2)
         
         lista_prob = [str(prob1),str(prob2), str(prob3)]
         zipped = list(zip(lista_classes, lista_prob))
