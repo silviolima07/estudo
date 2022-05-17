@@ -9,7 +9,8 @@ import torchvision
 import pandas as pd
 
 pd.set_option('precision',3)
-pd.reset_option('display.float_format', silent=True)
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
+
 
 st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
@@ -199,5 +200,10 @@ if canvas_result.image_data is not None:
         classe1,classe2,classe3 = top3.split(',')
         prob1, prob2, prob3 = probs.split(',')
         st.write(classe1)
+        st.write(classe2)
+        st.write(classe3)
+        
         st.write(prob1)
+        st.write(prob2)
+        st.write(prob3)
         
