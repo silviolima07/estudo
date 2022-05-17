@@ -8,7 +8,7 @@ import cv2
 import torchvision
 import pandas as pd
 
-pd.set_option('precision',2)
+pd.set_option('precision',3)
 
 st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
@@ -180,20 +180,21 @@ if canvas_result.image_data is not None:
         st.markdown('# Previsão')
         pred = str(output)        
         st.subheader(pred)
-        st.markdown('# Probabilidade da maior classe')    
-        st.write(str(np.round(certainty1[0].item()*100,2)) +'%')
+        st.markdown('# Probabilidade da maior classe')
+        classe =  str(np.round(certainty1[0].item()*100,2)) +'%'       
+        st.title(classe)
         st.markdown('# Top 3 classes')
         top3 = str(output1).replace('tensor','').replace('([','').replace('])','')
         st.title(top3)
         st.markdown('# Probabilidades')
-        probs = str(np.round(certainty1*100,2)).replace('tensor','').replace('([','').replace('])','')        
+        probs = str(certainty1*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
         lista_classes = [top3]
         lista_perc = [probs]
         zipped = list(zip(lista_classes, lista_perc))
         df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
         st.dataframe(df)
-        classe1,classe2,classe3 = probs.split(',')
+        classe1,classe2,classe3 = top3.split(',')
         prob1, prob2, prob3 = probs.split(',')
         st.write(classe1)
         st.write(prob1)
