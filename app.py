@@ -204,7 +204,7 @@ if canvas_result.image_data is not None:
         st.write(classe3)
         
         lista_prob = [str(prob1),str(prob2), str(prob3)]
-        zipped = list(zip(lista_classes, list_prob))
+        zipped = list(zip(lista_classes, lista_prob))
         df = pd.DataFrame(zipped, columns=['Classe', '% Probabilidade '])
         st.dataframe(df)
         
