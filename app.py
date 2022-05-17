@@ -183,5 +183,11 @@ if canvas_result.image_data is not None:
         top3 = str(output1).replace('tensor','').replace('([','').replace('])','')
         st.title(top3)
         st.markdown('# Probabilidades')
-        probs = str(np.round(certainty1,2)*100).replace('tensor','').replace('([','').replace('])','')        
+        probs = str(np.round(certainty1,4)*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
+        lista_classes = [top3]
+        lista_perc = [probs]
+        zipped = list(zip(lista_classes, lista_perc))
+        df = pd.DataFrame(zipped, columns['Classe', 'Probabilidade'])
+        st.dataframe(df)
+        
