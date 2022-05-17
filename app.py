@@ -192,25 +192,25 @@ if canvas_result.image_data is not None:
         
         probs = str(certainty1*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
-        lista_classes = [top3]
-        lista_perc = [str(probs)]
-        zipped = list(zip(lista_classes, lista_perc))
-        df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
-        st.dataframe(df)
+        #lista_classes = [top3]
+        #lista_perc = [str(probs)]
+        #zipped = list(zip(lista_classes, lista_perc))
+        #df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
+        #st.dataframe(df)
         classe1,classe2,classe3 = top3.split(',')
-        prob1, prob2, prob3 = probs.split(',')
-        st.write(classe1)
-        st.write(classe2)
-        st.write(classe3)
-        st.write(str(prob1))
-        st.write(str(prob2))
+        #prob1, prob2, prob3 = probs.split(',')
+        #st.write(classe1)
+        #st.write(classe2)
+        #st.write(classe3)
+        #st.write(str(prob1))
+        #st.write(str(prob2))
         
-        prob1 = str(prob1)
-        prob2 = str(prob2)
-        prob3 = str(prob3)
+        prob1 = str(np.round(certainty1[0].item()*100,2))
+        prob2 = str(np.round(certainty1[1].item()*100,2))
+        prob3 = str(np.round(certainty1[2].item()*100,2))
         
         data = {classe1: prob1, classe2: prob2, classe3: prob3}
-        df = pd.DataFrame(data, columns=['Classe', '% Probabilidade '])
+        #df = pd.DataFrame(data, columns=['Classe', '% Probabilidade '])
+        #st.dataframe(df)
+        df = pd.DataFrame(list(data.items()), columns=['Classe', '% Probabilidade '])
         st.dataframe(df)
-        df2 = pd.DataFrame(list(data.items()), columns=['Classe', '% Probabilidade '])
-        st.dataframe(df2)
