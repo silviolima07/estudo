@@ -203,7 +203,7 @@ if canvas_result.image_data is not None:
         st.write(classe2)
         st.write(classe3)
         
-        st.write(np.round(prob1,2))
+        st.write(prob1)
         st.write(prob2)
         st.write(prob3)
         
