@@ -8,6 +8,8 @@ import cv2
 import torchvision
 import pandas as pd
 
+pd.set_option('precision',2)
+
 st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
 
@@ -186,8 +188,8 @@ if canvas_result.image_data is not None:
         st.markdown('# Probabilidades')
         probs = str(np.round(certainty1*100,2)).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
-        lista_classes = list(top3)
-        lista_perc = list(probs)
+        lista_classes = [top3]
+        lista_perc = [probs]
         zipped = list(zip(lista_classes, lista_perc))
         df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
         st.dataframe(df)
