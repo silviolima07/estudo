@@ -138,8 +138,8 @@ if canvas_result.image_data is not None:
     # So we use matplotlib to save it instead
     #plt.imsave('processed_tensor.png',tensor_image.detach().cpu().numpy().reshape(28,28), cmap='gray')
 
-    st.markdown('### Processed image')
-    st.image('processed_tensor.png')
+    #st.markdown('### Processed image')
+    #st.image('processed_tensor.png')
     # st.write(tensor_image.detach().cpu().numpy().reshape(28,28))
 
 
