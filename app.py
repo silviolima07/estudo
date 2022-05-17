@@ -6,6 +6,7 @@ from PIL import Image
 import torch
 import cv2
 import torchvision
+import pandas as pd
 
 st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
@@ -183,7 +184,7 @@ if canvas_result.image_data is not None:
         top3 = str(output1).replace('tensor','').replace('([','').replace('])','')
         st.title(top3)
         st.markdown('# Probabilidades')
-        probs = str(np.round(certainty1,4)*100).replace('tensor','').replace('([','').replace('])','')        
+        probs = str(np.round(certainty1*100,2)).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
         lista_classes = [top3]
         lista_perc = [probs]
