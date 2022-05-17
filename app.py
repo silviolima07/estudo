@@ -9,6 +9,7 @@ import torchvision
 import pandas as pd
 
 pd.set_option('precision',3)
+pd.reset_option('display.float_format', silent=True)
 
 st.title('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
@@ -187,6 +188,7 @@ if canvas_result.image_data is not None:
         top3 = str(output1).replace('tensor','').replace('([','').replace('])','')
         st.title(top3)
         st.markdown('# Probabilidades')
+        
         probs = str(certainty1*100).replace('tensor','').replace('([','').replace('])','')        
         st.subheader(probs)
         lista_classes = [top3]
