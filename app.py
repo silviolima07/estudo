@@ -8,7 +8,7 @@ import cv2
 import torchvision
 import pandas as pd
 
-pd.set_option('precision',3)
+#pd.set_option('precision',3)
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 
@@ -203,7 +203,8 @@ if canvas_result.image_data is not None:
         st.write(classe2)
         st.write(classe3)
         
-        st.write(str(prob1))
-        st.write(prob2)
-        st.write(prob3)
+        lista_prob = [str(prob1),str(prob2), str(prob3)]
+        zipped = list(zip(lista_classes, list_prob))
+        df = pd.DataFrame(zipped, columns=['Classe', '% Probabilidade '])
+        st.dataframe(df)
         
