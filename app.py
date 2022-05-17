@@ -209,8 +209,8 @@ if canvas_result.image_data is not None:
         prob2 = str(prob2)
         prob3 = str(prob3)
         
-        data = {'Classe':'classe1,classe2,classe3',
-                '% Probabilidade': 'prob1, prob2, prob3'}
+        data = {classe1: prob1, classe2: prob2, classe3: prob3}
         df = pd.DataFrame(data, columns=['Classe', '% Probabilidade '])
         st.dataframe(df)
-        
+        df2 = pd.DataFrame(list(data.items()), columns=['Classe', '% Probabilidade '])
+        st.dataframe(df2)
