@@ -18,7 +18,7 @@ st.markdown('## Using a CNN `PyTorch` model')
 Network = torch.load('model_torch_MNIST_CNN_99_1_streamlit.chk')
 
 
-st.write('### Draw a digit in 0-9 in the box below')
+st.markdown('### Desenhe um número de 0-9')
 # Specify canvas parameters in application
 stroke_width = 10 # st.sidebar.slider("Stroke width: ", 1, 25, 9)
 
@@ -102,8 +102,9 @@ if canvas_result.image_data is not None:
     #st.write(input_image_gs_np)
      
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
-    st.write('mask')
-    st.image(output_image)
+    #st.write('mask')
+    #output_image.save('user_output.png')
+    #st.image(output_image)
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
     # Therefore, we use the following:
@@ -137,7 +138,7 @@ if canvas_result.image_data is not None:
     # So we use matplotlib to save it instead
     #plt.imsave('processed_tensor.png',tensor_image.detach().cpu().numpy().reshape(28,28), cmap='gray')
 
-    # st.write('### Processed image')
+    st.markdown('### Processed image')
     st.image('processed_tensor.png')
     # st.write(tensor_image.detach().cpu().numpy().reshape(28,28))
 
