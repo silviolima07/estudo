@@ -12,8 +12,8 @@ import pandas as pd
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
 
-st.title('# MNIST Digit Recognition')
-st.write('## Using a CNN `PyTorch` model')
+st.title('MNIST Digit Recognition')
+st.markdown('## Using a CNN `PyTorch` model')
 
 Network = torch.load('model_torch_MNIST_CNN_99_1_streamlit.chk')
 
@@ -102,6 +102,8 @@ if canvas_result.image_data is not None:
     #st.write(input_image_gs_np)
      
     output_image = Image.fromarray(mask) # mask has values in [0-255] as expected
+    st.write('mask')
+    st.image(output_image)
     # Now we need to resize, but it causes problems with default arguments as it changes the range of pixel values to be negative or positive
     # compressed_output_image = output_image.resize((22,22))
     # Therefore, we use the following:
@@ -136,7 +138,7 @@ if canvas_result.image_data is not None:
     #plt.imsave('processed_tensor.png',tensor_image.detach().cpu().numpy().reshape(28,28), cmap='gray')
 
     # st.write('### Processed image')
-    # st.image('processed_tensor.png')
+    st.image('processed_tensor.png')
     # st.write(tensor_image.detach().cpu().numpy().reshape(28,28))
 
 
@@ -214,4 +216,3 @@ if canvas_result.image_data is not None:
         #st.dataframe(df)
         df = pd.DataFrame(list(data.items()), columns=['Classe', '% Probabilidade '])
         st.dataframe(df)
-        st.table(df)
