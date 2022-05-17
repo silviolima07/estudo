@@ -189,6 +189,6 @@ if canvas_result.image_data is not None:
         lista_classes = [top3]
         lista_perc = [probs]
         zipped = list(zip(lista_classes, lista_perc))
-        df = pd.DataFrame(zipped, columns['Classe', 'Probabilidade'])
+        df = pd.DataFrame(zipped, columns=['Classe', 'Probabilidade'])
         st.dataframe(df)
         
