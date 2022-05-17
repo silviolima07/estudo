@@ -181,7 +181,7 @@ if canvas_result.image_data is not None:
 
         st.markdown('# Previsão')
         pred = str(output)        
-        st.subheader(pred)
+        st.title(pred)
         st.markdown('# Probabilidade da maior classe')
         classe =  str(np.round(certainty1[0].item()*100,2)) +'%'       
         st.title(classe)
@@ -191,7 +191,7 @@ if canvas_result.image_data is not None:
         st.markdown('# Probabilidades')
         
         probs = str(certainty1*100).replace('tensor','').replace('([','').replace('])','')        
-        st.subheader(probs)
+        #st.subheader(probs)
         #lista_classes = [top3]
         #lista_perc = [str(probs)]
         #zipped = list(zip(lista_classes, lista_perc))
@@ -214,3 +214,4 @@ if canvas_result.image_data is not None:
         #st.dataframe(df)
         df = pd.DataFrame(list(data.items()), columns=['Classe', '% Probabilidade '])
         st.dataframe(df)
+        st.table(df)
