@@ -32,8 +32,8 @@ canvas_result = st_canvas(
     background_color='#000000',
     #background_image=Image.open(bg_image) if bg_image else None,
     update_streamlit=realtime_update,
-    height=300,
-    width=300,
+    height=200,
+    width=200,
     drawing_mode='freedraw',
     key="canvas",
 )
@@ -64,7 +64,7 @@ if canvas_result.image_data is not None:
     input_image_gs = input_image.convert('L')
     #st.write('user input in gray scale11')
     #st.image(input_image_gs)
-    input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(300,300)
+    input_image_gs_np = np.asarray(input_image_gs.getdata()).reshape(200,200)
     #st.write('### Image as a grayscale Numpy array reshape 2000x200')
     #st.image(input_image_gs_np)
     
