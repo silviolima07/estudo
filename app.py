@@ -20,7 +20,7 @@ Network = torch.load('model_torch_MNIST_CNN_99_1_streamlit.chk')
 
 st.markdown('### Desenhe um número de 0-9')
 # Specify canvas parameters in application
-stroke_width = 10 # st.sidebar.slider("Stroke width: ", 1, 25, 9)
+stroke_width = 8 # st.sidebar.slider("Stroke width: ", 1, 25, 9)
 
 realtime_update = True #st.sidebar.checkbox("Update in realtime", True)
 
